@@ -19,32 +19,6 @@ instance Show Cliente where
   show (UnCliente nombre resistencia amigos) =
   	"Nombre: " ++ show nombre ++ "\nResistencia: " ++ show resistencia ++ "\nAmigos: " ++ show (listaNombres amigos)
 
-{-
-type Nombre = String
-type Resistencia = Int
-type Cliente = (Nombre, Resistencia, [Cliente])
-
-unRodri :: Cliente
-unRodri = ("Rodri", 55, [])
-
-unMarcos :: Cliente
-unMarcos = ("Marcos", 40, [nombre unRodri])
-
-unCristian :: Cliente
-unCristian = ("Cristian", 2, [])
-
-unaAna :: Cliente
-unaAna = ("Ana", 120, [nombre unRodri, nombre unMarcos])
-
-nombre :: Cliente -> Nombre
-nombre (elNombre, _, _) = elNombre
-
-resistencia :: Cliente -> Resistencia
-resistencia (_, laResistencia, _) = laResistencia
-
-amigos :: Cliente -> [Cliente]
-amigos (_, _, losAmigos) = losAmigos
--}
 -- Punto 3
 comoEsta :: Cliente -> String
 comoEsta cliente
@@ -59,29 +33,50 @@ yaEsAmigo cliente amigo =
 
 agregarAmigo :: Cliente -> Cliente -> Cliente
 agregarAmigo cliente nuevoAmigo
-	| not (yaEsAmigo cliente nuevoAmigo) =
+	| not (yaEsAmigo cliente nuevoAmigo) && not (nombre cliente == nombre nuevoAmigo) =
 		UnCliente (nombre cliente) (resistencia cliente) ( nuevoAmigo : (amigos cliente))
 	| otherwise = cliente
 
 -- Punto 5 - Bebidas
 type Bebida = Cliente -> Cliente
+type Fuerza = Int
+type Gusto = String
+type Tiempo = Int
 
-type Gusto = Int
-
-huevo :: Gusto
-huevo = length "Huevo"
-
-chocolate :: Gusto
-chocolate = length "Chocolate"
-
-frutilla :: Gusto
-frutilla = length "Frutilla"
-
-{-grogXD :: Bebida
+grogXD :: Bebida
 grogXD cliente =
-	((nombre cliente), 0, (amigos cliente))
+	UnCliente
+		(nombre cliente)
+		0
+		(amigos cliente)
 
-jarraLoca :: Cliente -> [Cliente]
+jarraLoca :: Bebida
 jarraLoca cliente =
-	((nombre cliente), (resistencia cliente - 10), (amigos cliente)) : (map ((nombre cliente), (resistencia cliente - 10), (amigos cliente)) (amigos cliente) )
--}
+	UnCliente (nombre cliente) (resistencia cliente - 10) (amigos cliente)
+
+klusener :: Gusto -> Bebida
+klusener gusto cliente =
+	UnCliente
+		(nombre cliente)
+		(resistencia cliente - length gusto)
+		(amigos cliente)
+
+tintico :: Bebida
+tintico cliente = 
+	UnCliente
+		(nombre cliente)
+		(resistencia cliente + (5 * (length.amigos) cliente))
+		(amigos cliente)
+
+soda :: Fuerza -> Bebida
+soda fuerza cliente =
+	UnCliente
+	("e" ++ (replicate fuerza 'r') ++ "p" ++ (nombre cliente))
+	(resistencia cliente)
+	(amigos cliente)
+
+rescatarse :: Tiempo -> Cliente -> Cliente
+rescatarse tiempo cliente
+	| tiempo < 0 = cliente
+	| tiempo > 3 = UnCliente (nombre cliente) (resistencia cliente + 200) (amigos cliente)
+	| otherwise = UnCliente (nombre cliente) (resistencia cliente + 100) (amigos cliente)
