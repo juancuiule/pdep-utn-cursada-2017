@@ -1,15 +1,23 @@
 -- Punto 1
-data Cliente = UnCliente { nombre :: String, resistencia :: Int, amigos :: [Cliente] }
+data Cliente = UnCliente {
+	nombre :: String,
+	resistencia :: Int,
+	amigos :: [Cliente]
+}
 
 -- Punto 2
-unRodri = UnCliente "Rodri" 55 []
-unMarcos = UnCliente "Marcos" 40 [unRodri]
-unCristian = UnCliente "Cristian" 2 []
-unaAna = UnCliente "Ana" 120 [unRodri, unMarcos]
+rodri = UnCliente "Rodri" 55 []
+marcos = UnCliente "Marcos" 40 [rodri]
+cristian = UnCliente "Cristian" 2 []
+ana = UnCliente "Ana" 120 [rodri, marcos]
+
+listaNombres :: [Cliente] -> [String]
+listaNombres listaDeAmigos =
+	map nombre listaDeAmigos
 
 instance Show Cliente where
   show (UnCliente nombre resistencia amigos) =
-  	"Nombre: " ++ show nombre ++ "\nResistencia: " ++ show resistencia ++ "\nAmigos: " ++ show (map nombre amigos)
+  	"Nombre: " ++ show nombre ++ "\nResistencia: " ++ show resistencia ++ "\nAmigos: " ++ show (listaNombres amigos)
 
 {-
 type Nombre = String
@@ -49,10 +57,11 @@ yaEsAmigo :: Cliente -> Cliente -> Bool
 yaEsAmigo cliente amigo =
 	elem (nombre amigo) (map nombre (amigos cliente))
 
-agregarAmigo :: Cliente -> Cliente -> String
+agregarAmigo :: Cliente -> Cliente -> Cliente
 agregarAmigo cliente nuevoAmigo
-	| yaEsAmigo cliente nuevoAmigo = "no puede agregar amigo"
-	| otherwise = "puede"
+	| not (yaEsAmigo cliente nuevoAmigo) =
+		UnCliente (nombre cliente) (resistencia cliente) ( nuevoAmigo : (amigos cliente))
+	| otherwise = cliente
 
 -- Punto 5 - Bebidas
 type Bebida = Cliente -> Cliente
