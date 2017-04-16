@@ -15,8 +15,8 @@ cristian = UnCliente "Cristian" 2 []
 ana = UnCliente "Ana" 120 [rodri, marcos]
 
 -- funciones para usar en show Cliente
-amigoATupla :: Cliente -> (Nombre, Resistencia, [String])
-amigoATupla cliente =
+pasarATupla :: Cliente -> (Nombre, Resistencia, [String])
+pasarATupla cliente =
 	(nombre cliente, resistencia cliente, (armarListaDeNombres.amigos) cliente)
 
 armarListaDeNombres :: [Cliente] -> [String]
@@ -25,7 +25,7 @@ armarListaDeNombres listaDeAmigos =
 
 instance Show Cliente where
   show (UnCliente nombre resistencia amigos) =
-  	"Nombre: " ++ show nombre ++ ", Resistencia: " ++ show resistencia ++ ", Amigos: " ++ show (map amigoATupla amigos)
+  	"Nombre: " ++ show nombre ++ ", Resistencia: " ++ show resistencia ++ ", Amigos: " ++ show (map pasarATupla amigos)
 
 -- Punto 3
 comoEsta :: Cliente -> String
