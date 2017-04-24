@@ -54,13 +54,9 @@ type Tiempo = Int
 grogXD :: Bebida
 grogXD cliente = modificarResistencia (- resistencia cliente) cliente
 
-compartirJarraLoca :: Cliente -> Cliente
-compartirJarraLoca (Cliente nombre resistencia amigos) =
-	Cliente nombre resistencia (map (modificarResistencia (-10)) amigos)
-
 jarraLoca :: Bebida
-jarraLoca =
-	compartirJarraLoca.(modificarResistencia (-10))
+jarraLoca (Cliente nombre resistencia amigos) =
+	Cliente nombre (resistencia - 10) (map (modificarResistencia (-10)) amigos)
 
 klusener :: Gusto -> Bebida
 klusener gusto cliente =
