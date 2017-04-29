@@ -1,4 +1,7 @@
+module Boliche where
+
 import Text.Show.Functions
+import Data.List
 
 type Nombre = String
 type Resistencia = Int
@@ -125,3 +128,13 @@ salidaDeAmigos = Itinerario "Salida de Amigos" 1 [soda 1, tintico, agregarAmigo 
 hacerItinerario :: Itinerario -> Cliente -> Cliente
 hacerItinerario itinerario cliente =
 	foldl1 (.) (acciones itinerario) cliente
+
+intensidad :: Itinerario -> Float
+intensidad itinerario =
+	(genericLength.acciones) itinerario / duracion itinerario
+
+itinerarioMasIntenso :: [Itinerario] -> Float
+itinerarioMasIntenso itinerarios =
+	maximum (map intensidad itinerarios)
+
+--chuckNorris = Cliente "Chuck" 1000 [ana] [(soda 1), (soda 2)..]
