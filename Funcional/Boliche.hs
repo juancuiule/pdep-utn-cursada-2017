@@ -37,16 +37,15 @@ yaEsAmigo :: Cliente -> Cliente -> Bool
 yaEsAmigo amigo cliente =
 	elem (nombre amigo) (map nombre (amigos cliente))
 
-
 modificarListaDeAmigos :: Cliente -> Cliente -> Cliente
-modificarListaDeAmigos cliente amigo = 
+modificarListaDeAmigos amigo cliente = 
 	cliente { amigos = amigo : amigos cliente }
 
 agregarAmigo :: Cliente -> Cliente -> Cliente
-agregarAmigo cliente nuevoAmigo
+agregarAmigo nuevoAmigo cliente
 	| yaEsAmigo nuevoAmigo cliente = cliente
 	| nombre cliente == nombre nuevoAmigo = cliente
-	| otherwise = modificarListaDeAmigos cliente nuevoAmigo
+	| otherwise = modificarListaDeAmigos nuevoAmigo cliente
 
 type Bebida = Cliente -> Cliente
 type Fuerza = Int
@@ -81,10 +80,6 @@ rescatarse tiempo cliente
 	| tiempo > 3 = modificarResistencia 200 cliente
 	| otherwise = modificarResistencia 100 cliente
 
---agregarBebida :: Cliente -> Bebida -> Cliente
---agregarBebida cliente bebida =
---	Cliente 
-
 agregarBebida :: Bebida -> Cliente -> Cliente
 agregarBebida bebida cliente =
 	cliente { bebidasTomadas = bebidasTomadas cliente ++ [bebida] }
@@ -93,13 +88,17 @@ tomarBebida :: Bebida -> Cliente -> Cliente
 tomarBebida bebida =
 	bebida.(agregarBebida bebida)
 
+mezclarBebidas :: [Bebida] -> Bebida
+mezclarBebidas bebidas =
+	foldl1 (.) (map tomarBebida (reverse bebidas))
+
 tomarTragos :: Cliente -> [Bebida] -> Cliente
 tomarTragos cliente bebidas =
-	foldl1 (.) bebidas cliente
+	 mezclarBebidas bebidas cliente
 
-dameOtro :: Cliente -> Cliente
-dameOtro cliente =
-	((last.bebidasTomadas) cliente) cliente
+dameOtro :: Cliente -> Bebida
+dameOtro =
+	(last.bebidasTomadas)
 
 noQuiebra :: Cliente -> Bebida -> Bool
 noQuiebra cliente bebida =
@@ -109,32 +108,42 @@ cualesPuedeTomar :: Cliente -> [Bebida] -> [Bebida]
 cualesPuedeTomar cliente bebidas =
 	filter (noQuiebra cliente) bebidas
 
-
 cuantasPuedeTomar :: Cliente -> [Bebida] -> Int
 cuantasPuedeTomar cliente bebidas =
 	length (cualesPuedeTomar cliente bebidas)
 
 
+itinerarioDeAna = (klusener "huevo".rescatarse 2.klusener "chocolate".jarraLoca) ana
+
 data Itinerario = Itinerario {
 	nombreItinerario :: String,
 	duracion :: Float,
 	acciones :: [Cliente -> Cliente]
-}
+} deriving (Show)
 
-mezclaExplosiva = Itinerario "Mezcla explosiva" 2.5 [grogXD, grogXD, klusener "huevo", klusener "frutilla"]
-itinerarioBasico = Itinerario "Itinerario básico" 5 [klusener "huevo", rescatarse 2, klusener "chocolate", jarraLoca]
-salidaDeAmigos = Itinerario "Salida de Amigos" 1 [soda 1, tintico, agregarAmigo robertoCarlos, jarraLoca]
+mezclaExplosiva = Itinerario "Mezcla explosiva" 2.5 [tomarBebida grogXD, tomarBebida grogXD, (tomarBebida.klusener) "huevo", (tomarBebida.klusener) "frutilla"]
+itinerarioBasico = Itinerario "Itinerario básico" 5 [(tomarBebida.klusener) "huevo", rescatarse 2, (tomarBebida.klusener) "chocolate", tomarBebida jarraLoca]
+salidaDeAmigos = Itinerario "Salida de Amigos" 1 [(tomarBebida.soda) 1, tomarBebida tintico, agregarAmigo robertoCarlos, tomarBebida jarraLoca]
 
 hacerItinerario :: Itinerario -> Cliente -> Cliente
-hacerItinerario itinerario cliente =
-	foldl1 (.) (acciones itinerario) cliente
+hacerItinerario itinerario 	 =
+	foldl1 (.) ((reverse.acciones) itinerario)
 
 intensidad :: Itinerario -> Float
 intensidad itinerario =
 	(genericLength.acciones) itinerario / duracion itinerario
 
-itinerarioMasIntenso :: [Itinerario] -> Float
-itinerarioMasIntenso itinerarios =
-	maximum (map intensidad itinerarios)
+mayorSegun :: (Ord b, Num b) => (a -> b) -> a -> a -> Bool
+mayorSegun funcion primerElemento segundoElemento =
+	funcion primerElemento > funcion segundoElemento
 
---chuckNorris = Cliente "Chuck" 1000 [ana] [(soda 1), (soda 2)..]
+devolverMayor :: Itinerario -> Itinerario -> Itinerario
+devolverMayor primerItinerario segundoItinerario
+	| mayorSegun intensidad primerItinerario segundoItinerario = primerItinerario
+	| otherwise = segundoItinerario
+
+itinerarioMasIntenso :: [Itinerario] -> Itinerario
+itinerarioMasIntenso itinerarios =
+	foldl1 devolverMayor itinerarios
+
+chuckNorris = Cliente "Chuck" 1000 [ana] (map soda [1,2..])
