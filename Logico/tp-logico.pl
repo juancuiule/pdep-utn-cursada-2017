@@ -29,3 +29,15 @@ saleConMasDeUno(Persona) :-
 esFiel(Persona) :-
 	saleCon(Persona, _),
  	not(saleConMasDeUno(Persona)).
+
+% acataOrden/2
+% Si es recursiva
+
+% Caso base
+acataOrden(Empleador, Empleado) :- 
+	trabajaPara(Empleador, Empleado).
+
+% Caso recursivo
+acataOrden(Empleador, Empleado) :-
+	trabajaPara(Empleador, Otro),
+	acataOrden(Otro, Empleado).
