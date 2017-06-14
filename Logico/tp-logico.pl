@@ -19,3 +19,13 @@ trabajaPara(Empleador, george) :-
 saleCon(Quien, Cual) :- pareja(Quien, Cual).
 saleCon(Quien, Cual) :- pareja(Cual, Quien).
 % No es recursiva
+
+%esFiel/1
+saleConMasDeUno(Persona) :-
+	saleCon(Persona, Alguien),
+	saleCon(Persona, Otro),
+	Alguien \= Otro.
+
+esFiel(Persona) :-
+	saleCon(Persona, _),
+ 	not(saleConMasDeUno(Persona)).
