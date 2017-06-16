@@ -83,3 +83,28 @@ esPeligroso(Persona):-
 esPeligroso(Persona):-
 	trabajaPara(Jefe,Persona),
 	esPeligroso(Jefe).
+
+%sanCayetano/1
+
+sanCayetano(Persona):-
+	tieneAAlguienCerca(Persona,_),
+	forall(tieneAAlguienCerca(Persona,Alguien),leDaEncargo(Persona,Alguien)).
+
+sonAmigos(Persona1,Persona2):-
+	amigo(Persona1,Persona2).
+
+sonAmigos(Persona1,Persona2):-
+	amigo(Persona2,Persona1).
+
+tieneAAlguienCerca(Persona1,Persona2):-
+	sonAmigos(Persona1,Persona2).
+
+tieneAAlguienCerca(Persona1,Persona2):-
+	trabajaPara(Persona2,Persona1).
+
+leDaEncargo(Persona1,Persona2):-
+	encargo(Persona1,Persona2,cuidar(_)).
+leDaEncargo(Persona1,Persona2):-
+	encargo(Persona1,Persona2,ayudar(_)).
+leDaEncargo(Persona1,Persona2):-
+	encargo(Persona1,Persona2,buscar(_,_)).	
