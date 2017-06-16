@@ -71,12 +71,13 @@ amigo(vincent, jules).
 amigo(jules, jimmie).
 amigo(vincent, elVendedor).
 
-%esPeligroso/1
+% esPeligroso/1
 esPeligroso(Persona):-
 	personaje(Persona,mafioso(maton)).
 
 esPeligroso(Persona):-
 	personaje(Persona,ladron([_,licorerias])).
+	
 esPeligroso(Persona):-
 	personaje(Persona,ladron([licorerias,_])).
 
@@ -84,27 +85,18 @@ esPeligroso(Persona):-
 	trabajaPara(Jefe,Persona),
 	esPeligroso(Jefe).
 
-%sanCayetano/1
-
+% sanCayetano/1
 sanCayetano(Persona):-
-	tieneAAlguienCerca(Persona,_),
-	forall(tieneAAlguienCerca(Persona,Alguien),leDaEncargo(Persona,Alguien)).
+	tieneAAlguienCerca(Persona, _),
+	forall(tieneAAlguienCerca(Persona, Alguien), leDaEncargo(Persona, Alguien)).
 
-sonAmigos(Persona1,Persona2):-
-	amigo(Persona1,Persona2).
+sonAmigos(Persona, Alguien):- amigo(Persona, Alguien).
+sonAmigos(Persona, Alguien):- amigo(Alguien, Persona).
 
-sonAmigos(Persona1,Persona2):-
-	amigo(Persona2,Persona1).
+tieneAAlguienCerca(Persona, Alguien):- sonAmigos(Persona, Alguien).
+tieneAAlguienCerca(Persona, Alguien):-	trabajaPara(Alguien, Persona).
+tieneAAlguienCerca(Persona, Alguien):- trabajaPara(Persona, Alguien).
 
-tieneAAlguienCerca(Persona1,Persona2):-
-	sonAmigos(Persona1,Persona2).
-
-tieneAAlguienCerca(Persona1,Persona2):-
-	trabajaPara(Persona2,Persona1).
-
-leDaEncargo(Persona1,Persona2):-
-	encargo(Persona1,Persona2,cuidar(_)).
-leDaEncargo(Persona1,Persona2):-
-	encargo(Persona1,Persona2,ayudar(_)).
-leDaEncargo(Persona1,Persona2):-
-	encargo(Persona1,Persona2,buscar(_,_)).	
+leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, cuidar(_)).
+leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, ayudar(_)).
+leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, buscar(_, _)).
