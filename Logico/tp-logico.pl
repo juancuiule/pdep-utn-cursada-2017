@@ -114,3 +114,26 @@ nivelDeRespeto(Nombre, 20) :-
 	personaje(Nombre,  mafioso(capo)).
 
 nivelDeRespeto(vincent, 15).
+
+% respetabilidad/2
+noRespetable(Nombre) :-
+	personaje(Nombre, _),
+	nivelDeRespeto(Nombre, Nivel),
+	Nivel < 10.
+
+noRespetable(Nombre) :-
+	personaje(Nombre, _),
+	not(nivelDeRespeto(Nombre, _)).
+
+respetable(Nombre) :-
+	personaje(Nombre, _),
+	not(noRespetable(Nombre)).
+
+respetabilidad(Respetables, NoRespetables) :-
+	findall( personaje(Nombre, _), respetable(Nombre), LosRespetables),
+	length(LosRespetables, CantidadDeRespetables),
+	Respetables is CantidadDeRespetables,
+
+	findall( personaje(Nombre, _), noRespetable(Nombre), LosNoRespetables),
+	length(LosNoRespetables, CantidadDeNoRespetables),
+	NoRespetables is CantidadDeNoRespetables.
