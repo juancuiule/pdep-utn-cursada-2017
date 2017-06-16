@@ -77,7 +77,7 @@ esPeligroso(Persona):-
 
 esPeligroso(Persona):-
 	personaje(Persona,ladron([_,licorerias])).
-	
+
 esPeligroso(Persona):-
 	personaje(Persona,ladron([licorerias,_])).
 
@@ -100,3 +100,17 @@ tieneAAlguienCerca(Persona, Alguien):- trabajaPara(Persona, Alguien).
 leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, cuidar(_)).
 leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, ayudar(_)).
 leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, buscar(_, _)).
+
+% nivelDeRespeto/2
+nivelDeRespeto(Nombre, NivelDeRespeto) :-
+	personaje(Nombre, actriz(ListaDePeliculas)),
+	length(ListaDePeliculas, CantidadDePeliculas),
+	NivelDeRespeto is CantidadDePeliculas / 10.
+
+nivelDeRespeto(Nombre, 10) :-
+	personaje(Nombre,  mafioso(resuelveProblemas)).
+
+nivelDeRespeto(Nombre, 20) :-
+	personaje(Nombre,  mafioso(capo)).
+
+nivelDeRespeto(vincent, 15).
