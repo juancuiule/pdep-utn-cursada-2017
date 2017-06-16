@@ -70,3 +70,16 @@ encargo(bernardo, winston, buscar(jules, lugano)).
 amigo(vincent, jules).
 amigo(jules, jimmie).
 amigo(vincent, elVendedor).
+
+%esPeligroso/1
+esPeligroso(Persona):-
+	personaje(Persona,mafioso(maton)).
+
+esPeligroso(Persona):-
+	personaje(Persona,ladron([_,licorerias])).
+esPeligroso(Persona):-
+	personaje(Persona,ladron([licorerias,_])).
+
+esPeligroso(Persona):-
+	trabajaPara(Jefe,Persona),
+	esPeligroso(Jefe).
