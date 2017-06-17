@@ -130,10 +130,7 @@ respetable(Nombre) :-
 	not(noRespetable(Nombre)).
 
 respetabilidad(Respetables, NoRespetables) :-
-	findall( personaje(Nombre, _), respetable(Nombre), LosRespetables),
-	length(LosRespetables, CantidadDeRespetables),
-	Respetables is CantidadDeRespetables,
-
-	findall( personaje(Nombre, _), noRespetable(Nombre), LosNoRespetables),
-	length(LosNoRespetables, CantidadDeNoRespetables),
-	NoRespetables is CantidadDeNoRespetables.
+	findall(Nombre, respetable(Nombre), LosRespetables),
+	length(LosRespetables, Respetables),
+	findall(Nombre, noRespetable(Nombre), LosNoRespetables),
+	length(LosNoRespetables, NoRespetables).
