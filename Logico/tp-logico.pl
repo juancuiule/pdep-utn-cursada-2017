@@ -116,18 +116,14 @@ nivelDeRespeto(Nombre, 20) :-
 nivelDeRespeto(vincent, 15).
 
 % respetabilidad/2
-noRespetable(Nombre) :-
-	personaje(Nombre, _),
-	nivelDeRespeto(Nombre, Nivel),
-	Nivel < 10.
-
-noRespetable(Nombre) :-
-	personaje(Nombre, _),
-	not(nivelDeRespeto(Nombre, _)).
-
 respetable(Nombre) :-
 	personaje(Nombre, _),
-	not(noRespetable(Nombre)).
+	nivelDeRespeto(Nombre, Nivel),
+	Nivel > 9.
+
+noRespetable(Nombre) :-
+	personaje(Nombre, _),
+	not(respetable(Nombre)).
 
 respetabilidad(Respetables, NoRespetables) :-
 	findall(Nombre, respetable(Nombre), LosRespetables),
