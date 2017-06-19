@@ -130,3 +130,18 @@ respetabilidad(Respetables, NoRespetables) :-
 	length(LosRespetables, Respetables),
 	findall(Nombre, noRespetable(Nombre), LosNoRespetables),
 	length(LosNoRespetables, NoRespetables).
+
+% masAtareado/1
+cantidadDeEncargos(Nombre, Cantidad) :-
+	personaje(Nombre, _),
+	findall(Nombre, encargo(_, Nombre, _), ListaDeTareas),
+	length(ListaDeTareas, Cantidad).
+
+tieneMenosTareasQue(NombreDelPrimero, NombreDelSegundo) :-
+	cantidadDeEncargos(NombreDelPrimero, CantidadDelPrimero),
+	cantidadDeEncargos(NombreDelSegundo, CantidadDelSegundo),
+	CantidadDelSegundo >= CantidadDelPrimero.
+
+masAtareado(Quien) :-
+	encargo(_, Quien, _),
+	forall(encargo(_, Otro, _), tieneMenosTareasQue(Otro, Quien)).
