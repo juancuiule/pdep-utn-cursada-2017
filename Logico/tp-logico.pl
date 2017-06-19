@@ -73,47 +73,41 @@ amigo(vincent, elVendedor).
 
 % esPeligroso/1
 esPeligroso(Persona):-
-	personaje(Persona,mafioso(maton)).
-
-esPeligroso(Persona):-
-	personaje(Persona,ladron([_,licorerias])).
-
-esPeligroso(Persona):-
-	personaje(Persona,ladron([licorerias,_])).
+	personaje(Persona, Ocupacion),
+	ocupacionPeligrosa(Ocupacion).
 
 esPeligroso(Persona):-
 	trabajaPara(Jefe,Persona),
 	esPeligroso(Jefe).
 
+ocupacionPeligrosa(mafioso(maton)).
+ocupacionPeligrosa(ladron(Lugares)) :-
+	member(licorerias, Lugares).
+
 % sanCayetano/1
 sanCayetano(Persona):-
 	tieneAAlguienCerca(Persona, _),
-	forall(tieneAAlguienCerca(Persona, Alguien), leDaEncargo(Persona, Alguien)).
+	forall(tieneAAlguienCerca(Persona, Alguien), encargo(Persona, Alguien, _)).
 
 sonAmigos(Persona, Alguien):- amigo(Persona, Alguien).
 sonAmigos(Persona, Alguien):- amigo(Alguien, Persona).
 
 tieneAAlguienCerca(Persona, Alguien):- sonAmigos(Persona, Alguien).
-tieneAAlguienCerca(Persona, Alguien):-	trabajaPara(Alguien, Persona).
+tieneAAlguienCerca(Persona, Alguien):- trabajaPara(Alguien, Persona).
 tieneAAlguienCerca(Persona, Alguien):- trabajaPara(Persona, Alguien).
-
-leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, cuidar(_)).
-leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, ayudar(_)).
-leDaEncargo(Persona, Alguien):- encargo(Persona, Alguien, buscar(_, _)).
 
 % nivelDeRespeto/2
 nivelDeRespeto(Nombre, NivelDeRespeto) :-
-	personaje(Nombre, actriz(ListaDePeliculas)),
-	length(ListaDePeliculas, CantidadDePeliculas),
-	NivelDeRespeto is CantidadDePeliculas / 10.
-
-nivelDeRespeto(Nombre, 10) :-
-	personaje(Nombre,  mafioso(resuelveProblemas)).
-
-nivelDeRespeto(Nombre, 20) :-
-	personaje(Nombre,  mafioso(capo)).
+	personaje(Nombre, Ocupacion),
+	respetoPorOcupacion(Ocupacion, NivelDeRespeto).
 
 nivelDeRespeto(vincent, 15).
+
+respetoPorOcupacion(actriz(Peliculas), Respeto) :-
+	length(Peliculas, CantidadDePeliculas),
+	Respeto is CantidadDePeliculas / 10.
+respetoPorOcupacion(mafioso(resuelveProblemas), 10).
+respetoPorOcupacion(mafioso(capo), 20).
 
 % respetabilidad/2
 respetable(Nombre) :-
