@@ -15,6 +15,10 @@ object vonLukaz {
 	method remera() {
 		return remera
 	}
+
+	method energia() {
+		return energia
+	}
 }
 
 object bianker {
@@ -34,6 +38,10 @@ object bianker {
 	method remera() {
 		return remera
 	}
+
+	method energia() {
+		return energia
+	}
 }
 
 object gonzen {
@@ -52,5 +60,9 @@ object gonzen {
 
 	method remera() {
 		return remera
+	}
+
+	method energia() {
+		return energia
 	}
 }
