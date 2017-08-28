@@ -19,6 +19,10 @@ object vonLukaz {
 	method energia() {
 		return energia
 	}
+	
+	method edad() {
+		return edad
+	}
 }
 
 object bianker {
@@ -42,6 +46,10 @@ object bianker {
 	method energia() {
 		return energia
 	}
+
+	method edad() {
+		return edad
+	}
 }
 
 object gonzen {
@@ -64,5 +72,9 @@ object gonzen {
 
 	method energia() {
 		return energia
+	}
+
+	method edad() {
+		return edad
 	}
 }
