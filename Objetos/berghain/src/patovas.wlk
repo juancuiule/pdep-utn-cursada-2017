@@ -1,4 +1,4 @@
-object Rochensen {
+object rochensen {
 	
 	method dejaPasar(persona) {
 		return persona.edad() > 21
@@ -6,7 +6,7 @@ object Rochensen {
 	
 }
 
-object Rodrigsen {
+object rodrigsen {
 	
 	method dejaPasar(persona) {
 		return persona.remera() == "negra"
@@ -14,7 +14,7 @@ object Rodrigsen {
 
 }
 
-object Gushtavotruccensen {
+object gushtavotruccensen {
 	
 	method dejaPasar(persona) {
 		return false

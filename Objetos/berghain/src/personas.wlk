@@ -1,4 +1,4 @@
-object VonLukaz {
+object vonLukaz {
 	var energia = 150
 	var diversion = 70
 	var remera = "blanca"
@@ -17,7 +17,7 @@ object VonLukaz {
 	}
 }
 
-object Bianker {
+object bianker {
 	var energia = 140
 	var diversion = 80
 	var remera = "negra"
@@ -36,7 +36,7 @@ object Bianker {
 	}
 }
 
-object Gonzen {
+object gonzen {
 	var energia = 90
 	var diversion = 15
 	var remera = "negra"
