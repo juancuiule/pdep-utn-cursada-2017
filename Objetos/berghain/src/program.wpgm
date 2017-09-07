@@ -18,7 +18,7 @@ program abc {
 	
 	panoramaBar.entrar(bianker)
 	panoramaBar.entrar(gonzen)
-	panoramaBar.personas().map { persona => panoramaBar.bailar(persona)}
+	panoramaBar.personas().forEach{ persona => panoramaBar.bailar(persona)}
 	console.println(panoramaBar.personas())
 	
 	pistas.map { pista => console.println("En " + pista.nombre() + " hay " + pista.cuantosBailan() + " pesonas bailando")}
