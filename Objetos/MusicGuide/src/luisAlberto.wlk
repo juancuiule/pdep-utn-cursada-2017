@@ -1,7 +1,8 @@
 
 object luisAlberto {
-	var guitarra = fender
+	var guitarra
 	var habilidadBase
+	var grupo = ""
 	
 	method tocaConGuitarra(unaGuitarra){
 		guitarra = unaGuitarra
@@ -10,21 +11,25 @@ object luisAlberto {
 		guitarra.estaRota(true)
 	}
 	method habilidad() {
-    	habilidadBase = 8* guitarra.valor()
-  	}//FALTA QUE SEA MENOR QUE 100
+    	habilidadBase = 8* guitarra.valor().min(100)
+  	}
   	method interpretaBien(cancion) {
    		return true
   	}
   
- 	method cobra(lugar, fecha) {
-   		if(self.sePasaDeSeptiembre(fecha)){
+ 	method cobra(lugar, dia,mes,anio) {
+   		if(self.sePasaDeSeptiembre(dia,mes,anio)){
    			return 1200
    		}else{
    			return 1000
    		}
   }
-//FALTA METHOD sePasaDeSeptiembre(fecha)
-
+	method sePasaDeSeptiembre(dia,mes,anio){
+ 		return mes <= 09 and anio <= 2017
+		}
+	method grupo(nuevoGrupo) {
+  		grupo = nuevoGrupo
+  }
 }
 
 object fender{
