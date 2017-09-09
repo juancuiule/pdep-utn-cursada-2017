@@ -10,5 +10,8 @@ class Presentacion {
 	method fecha(){
 		return fecha
 	}
+	method sePasaDeSeptiembre(){
+ 		return fecha > new Date(1,9,2017)
+	}
 
 }
