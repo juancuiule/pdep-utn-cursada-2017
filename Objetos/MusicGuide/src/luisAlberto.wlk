@@ -17,15 +17,15 @@ object luisAlberto {
    		return true
   	}
   
- 	method cobra(lugar, dia,mes,anio) {
-   		if(self.sePasaDeSeptiembre(dia,mes,anio)){
+ 	method cobra(presentacion) {
+   		if(self.sePasaDeSeptiembre(presentacion.fecha())){
    			return 1200
    		}else{
    			return 1000
    		}
   }
-	method sePasaDeSeptiembre(dia,mes,anio){
- 		return mes <= 09 and anio <= 2017
+	method sePasaDeSeptiembre(unaFecha){
+ 		return unaFecha > new Date(1,9,2017)
 		}
 	method grupo(nuevoGrupo) {
   		grupo = nuevoGrupo
