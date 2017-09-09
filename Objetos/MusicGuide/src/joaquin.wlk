@@ -18,7 +18,7 @@ object joaquin {
     return cancion.duracion() > 300
   }
 
-  method cobra(lugar, fecha) {
+  method cobra(presentacion) {
     if(self.estaEnGrupo()) {
       return 50
     } else { 

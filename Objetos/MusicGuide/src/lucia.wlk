@@ -18,8 +18,8 @@ object lucia {
     return cancion.letra().contains("familia")
   }
 
-  method cobra(lugar, fecha) {
-    if(lugar.esConcurrido()) {
+  method cobra(presentacion) {
+    if(presentacion.esConcurrida()) {
     	return 500	
     } else {
     	return 400
