@@ -11,7 +11,7 @@ object luisAlberto {
 		guitarra.estaRota(true)
 	}
 	method habilidad() {
-    	habilidadBase = 8* guitarra.valor().min(100)
+    	habilidadBase = 100.min(8*guitarra.valor())
   	}
   	method interpretaBien(cancion) {
    		return true
