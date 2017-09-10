@@ -1,12 +1,11 @@
 class Presentacion {
 	var lugar
 	var fecha
-	var gentePresente
+	var artistas = #{}
 
-	constructor (unLugar,unaFecha, integrantes) {
+	constructor (unLugar,unaFecha) {
 		lugar = unLugar
 		fecha = unaFecha
-		gentePresente = integrantes
 	}
 
 	method capacidad(unaFecha) {
@@ -21,11 +20,19 @@ class Presentacion {
 		return lugar
 	}
 
+	method artistas() {
+		return artistas
+	}
+
 	method sePasaDeSeptiembre() {
 		return fecha >= new Date(1,9,2017)
 	}
 
 	method costo() {
-		return gentePresente.sum{integrante => integrante.cobra(self)}
+		return artistas.sum{integrante => integrante.cobra(self)}
+	}
+
+	method agregarArtista(unArtista) {
+		artistas.add(unArtista)
 	}
 }
