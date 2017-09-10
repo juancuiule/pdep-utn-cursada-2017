@@ -1,6 +1,8 @@
 import luisAlberto.*
 import joaquin.*
 import lucia.*
+import lunaPark.*
+import laTrastienda.*
 class Presentacion {
 	var lugar
 	var fecha
@@ -18,10 +20,13 @@ class Presentacion {
 	method fecha(){
 		return fecha
 	}
+	method lugar(){
+		return lugar
+	}
 	method sePasaDeSeptiembre(){
  		return fecha > new Date(1,9,2017)
 	}
 	method costo(){
-		gentePresente.sum{integrante => integrante.cobra(self)}
+		return gentePresente.sum{integrante => integrante.cobra(self)}
 	}
 }
