@@ -4,37 +4,24 @@ import lucia.*
 class Presentacion {
 	var lugar
 	var fecha
-	var capacidad
 	var gentePresente
-	constructor (unLugar,unaFecha) {
+	constructor (unLugar,unaFecha, integrantes) {
 		lugar = unLugar
 		fecha = unaFecha
-		
-		if(self.esLunaPark()){
-			capacidad = 9290
-			gentePresente = #{luisAlberto,joaquin,lucia}
-		}else{ if(self.esSabado(unaFecha)){
-			capacidad = 700
-			gentePresente = #{luisAlberto,joaquin,lucia}
-		}else {	capacidad = 400
-				gentePresente = #{luisAlberto,joaquin,lucia}	
-		}
-			
-		}
+		gentePresente = integrantes
 	}
+		
+	method capacidadDeUnLugar(unaFecha){
+		return lugar.capacidadLugar(unaFecha)
+	}
+
 	method fecha(){
 		return fecha
 	}
 	method sePasaDeSeptiembre(){
  		return fecha > new Date(1,9,2017)
 	}
-	method esConcurrida(){
-		return capacidad > 5000
-	}
-	method esLunaPark(){
-		return lugar == "Luna Park"
-	}
-	method esSabado(unaFecha){
-		return unaFecha.dayOfWeek() == 6
+	method costo(){
+		gentePresente.sum{integrante => integrante.cobra(self)}
 	}
 }
