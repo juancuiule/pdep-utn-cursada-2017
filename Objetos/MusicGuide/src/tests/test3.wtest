@@ -7,9 +7,15 @@ import Presentacion.*
 
 describe "presentaciones"{
 	
+	var luna = new Presentacion(lunaPark,new Date (15,11,2017),#{joaquin,lucia,luisAlberto})
+	var trastienda = new Presentacion(laTrastienda,new Date (15,11,2017),#{joaquin})
 	
 	test "Joaquin cobra 50 por la presentancion del Luna Park"{
-		assert.equals(50,joaquin.cobra(lunaPark))
+		assert.equals(50,joaquin.cobra(luna.lugar()))
+	}
+	
+	test "Joaquin cobra 50 por la presentancion de la Trastienda"{
+		assert.equals(100,joaquin.cobra(trastienda.lugar()))
 	}
 	
 	
