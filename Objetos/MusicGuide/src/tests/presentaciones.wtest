@@ -5,19 +5,19 @@ import lunaPark.*
 import laTrastienda.*
 import Presentacion.*
 
-describe "presentaciones"{
-	
-	var luna = new Presentacion(lunaPark,new Date (15,11,2017),#{joaquin,lucia,luisAlberto})
-	var trastienda = new Presentacion(laTrastienda,new Date (15,11,2017),#{joaquin})
-	
-	test "Joaquin cobra 50 por la presentancion del Luna Park"{
-		joaquin.grupo("Pimpinela")
-		assert.equals(50,joaquin.cobra(luna))
+describe "Presentaciones" {
+	var presentacionEnLuna = new Presentacion(lunaPark, new Date(15,11,2017))
+	var presentacionEnLaTrastienda = new Presentacion(laTrastienda, new Date (15,11,2017))
+
+	test "Joaquin cobra 50 por la presentancion del Luna Park" {
+		presentacionEnLuna.agregarArtista(joaquin)
+		presentacionEnLuna.agregarArtista(lucia)
+		presentacionEnLuna.agregarArtista(luisAlberto)
+		assert.equals(50, joaquin.cobra(presentacionEnLuna))
 	}
-	
-	test "Joaquin cobra 100 por la presentancion de la Trastienda"{
-		assert.equals(100,joaquin.cobra(trastienda))
+
+	test "Joaquin cobra 100 por la presentancion de la Trastienda, tocando solo" {
+		presentacionEnLaTrastienda.agregarArtista(joaquin)
+		assert.equals(100, joaquin.cobra(presentacionEnLaTrastienda))
 	}
-	
-	
 }
