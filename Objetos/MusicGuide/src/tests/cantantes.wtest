@@ -2,7 +2,7 @@ import joaquin.*
 import lucia.*
 import luisAlberto.*
 
-describe "cantantes" {
+describe "Cantantes" {
 	
 	test "Joaquín canta en el grupo Pimpinela, su habilidad es 25" {
 		joaquin.grupo("Pimpinela")
