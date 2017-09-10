@@ -11,11 +11,12 @@ describe "presentaciones"{
 	var trastienda = new Presentacion(laTrastienda,new Date (15,11,2017),#{joaquin})
 	
 	test "Joaquin cobra 50 por la presentancion del Luna Park"{
-		assert.equals(50,joaquin.cobra(luna.lugar()))
+		joaquin.grupo("Pimpinela")
+		assert.equals(50,joaquin.cobra(luna))
 	}
 	
 	test "Joaquin cobra 100 por la presentancion de la Trastienda"{
-		assert.equals(100,joaquin.cobra(trastienda.lugar()))
+		assert.equals(100,joaquin.cobra(trastienda))
 	}
 	
 	
