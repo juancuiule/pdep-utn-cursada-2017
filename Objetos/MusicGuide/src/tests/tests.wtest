@@ -1,0 +1,45 @@
+import joaquin.*
+import lucia.*
+import luisAlberto.*
+
+describe "cantantes" {
+	
+	test "Joaquín canta en el grupo Pimpinela, su habilidad es 25" {
+		joaquin.grupo("Pimpinela")
+		assert.equals(joaquin.habilidad(), 25)
+	}
+	
+	test "Joaquín canta en el grupo Pimpinela, y decide lanzar su carrera solista (deja el grupo), su habilidad es 20" {
+		joaquin.grupo("Pimpinela")
+		joaquin.dejarGrupo()
+		assert.equals(joaquin.habilidad(), 20)
+	}
+	
+	test "Lucía canta en el grupo Pimpinela, su habilidad es 50" {
+		lucia.grupo("Pimpinela")
+		assert.equals(lucia.habilidad(), 50)
+	}
+	
+	test "Lucía canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo), su habilidad es 70" {
+		lucia.grupo("Pimpinela")
+		lucia.dejarGrupo()
+		assert.equals(lucia.habilidad(), 70)
+	}
+	
+	test "Luis Alberto toca con la Fender, su habilidad es 80" {
+		luisAlberto.tocaConGuitarra(fender)
+		assert.equals(luisAlberto.habilidad(), 80)
+	}
+	
+	test "Luis Alberto toca ahora con la Gibson sana, su habilidad es 100" {
+		luisAlberto.tocaConGuitarra(gibson)
+		assert.equals(luisAlberto.habilidad(), 100)
+	}
+	
+	test "Luis Alberto toca ahora con la Gibson que no está sana, su habilidad es 40" {
+		luisAlberto.tocaConGuitarra(gibson)
+		luisAlberto.trataMalAGuitarra()
+		assert.equals(luisAlberto.habilidad(), 40)
+	}
+	
+}
