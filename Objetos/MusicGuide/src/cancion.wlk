@@ -1,4 +1,3 @@
-
 class Cancion {
 
 	var duracion
@@ -10,7 +9,10 @@ class Cancion {
 	}
 	
 	method duracion() = duracion
-	
+
 	method letra()=letra	
 
+	method dice(palabra) {
+		return letra.contains(palabra)
+	}
 }

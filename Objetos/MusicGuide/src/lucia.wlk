@@ -15,7 +15,7 @@ object lucia {
   }
 
   method interpretaBien(cancion) {
-    return cancion.letra().contains("familia")
+    return cancion.dice("familia")
   }
 
   method cobra(presentacion) {
