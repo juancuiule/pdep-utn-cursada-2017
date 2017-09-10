@@ -1,5 +1,5 @@
 object lucia {
-  var grupo = "Pimpinela"
+  var grupo = ""
   var habilidadBase = 70
 
   method estaEnGrupo() {
@@ -28,5 +28,9 @@ object lucia {
   
   method grupo(nuevoGrupo) {
   	grupo = nuevoGrupo
+  }
+
+  method dejarGrupo() {
+	grupo = ""
   }
 }

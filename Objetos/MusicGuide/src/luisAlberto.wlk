@@ -1,64 +1,73 @@
-
 object luisAlberto {
 	var guitarra
 	var habilidadBase
 	var grupo = ""
-	
-	method tocaConGuitarra(unaGuitarra){
+
+	method tocaConGuitarra(unaGuitarra) {
 		guitarra = unaGuitarra
 	}
-	method trataMalAGuitarra(){
+
+	method trataMalAGuitarra() {
 		guitarra.estaRota(true)
 	}
+
 	method habilidad() {
-    	habilidadBase = 100.min(8*guitarra.valor())
+		habilidadBase = 100.min(8*guitarra.valor())
   	}
-  	method interpretaBien(cancion) {
-   		return true
-  	}
-  
+
+	method interpretaBien(cancion) {
+		return true
+	}
+
  	method cobra(presentacion) {
-   		if(presentacion.sePasaDeSeptiembre()){
-   			return 1200
-   		}else{
-   			return 1000
-   		}
-  }
-	
+		if (presentacion.sePasaDeSeptiembre()) {
+			return 1200
+		} else {
+			return 1000
+		}
+	}
+
 	method grupo(nuevoGrupo) {
-  		grupo = nuevoGrupo
-  }
+		grupo = nuevoGrupo
+	}
+
+	method dejarGrupo() {
+		grupo = ""
+	}
 }
 
-object fender{
+object fender {
 	var estaRota = false
 	
-	method valor(){
+	method valor() {
 		return 10
 	}
-	method estaRota(){
+
+	method estaRota() {
 		return estaRota
 	}
-	method estaRota(trueOfalse){
-		estaRota = trueOfalse
 
+	method estaRota(trueOfalse) {
+		estaRota = trueOfalse
 	}
 }
 
-object gibson{
+object gibson {
 	var estaRota = false
 	
-	method valor(){
-		if(self.estaRota()){
+	method valor() {
+		if (self.estaRota()) {
 			return 5
-		}else{
+		} else {
 			return 15
 		}
 	}
-	method estaRota(){
+
+	method estaRota() {
 		return estaRota
 	}
-	method estaRota(trueOfalse){
+
+	method estaRota(trueOfalse) {
 		estaRota = trueOfalse
 	}
 }

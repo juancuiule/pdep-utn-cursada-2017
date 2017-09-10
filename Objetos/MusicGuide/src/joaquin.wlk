@@ -1,5 +1,5 @@
 object joaquin {
-  var grupo = "Pimpinela"
+  var grupo = ""
   var habilidadBase = 20
 
   method estaEnGrupo() {
@@ -28,5 +28,9 @@ object joaquin {
   
   method grupo(nuevoGrupo) {
   	grupo = nuevoGrupo
+  }
+
+  method dejarGrupo() {
+	grupo = ""
   }
 }
