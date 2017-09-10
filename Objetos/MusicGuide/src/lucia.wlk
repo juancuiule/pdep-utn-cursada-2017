@@ -19,7 +19,7 @@ object lucia {
   }
 
   method cobra(presentacion) {
-    if(presentacion.lugar().esConcurrida()) {
+    if(presentacion.lugar().esConcurrida(presentacion.fecha())) {
     	return 500	
     } else {
     	return 400
