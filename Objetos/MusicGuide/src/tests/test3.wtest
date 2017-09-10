@@ -14,7 +14,7 @@ describe "presentaciones"{
 		assert.equals(50,joaquin.cobra(luna.lugar()))
 	}
 	
-	test "Joaquin cobra 50 por la presentancion de la Trastienda"{
+	test "Joaquin cobra 100 por la presentancion de la Trastienda"{
 		assert.equals(100,joaquin.cobra(trastienda.lugar()))
 	}
 	
