@@ -1,6 +1,5 @@
 object luisAlberto {
 	var guitarra
-	var habilidadBase
 	var grupo = ""
 
 	method tocaConGuitarra(unaGuitarra) {
@@ -12,7 +11,7 @@ object luisAlberto {
 	}
 
 	method habilidad() {
-		habilidadBase = 100.min(8*guitarra.valor())
+		return 100.min(8*guitarra.valor())
   	}
 
 	method interpretaBien(cancion) {
