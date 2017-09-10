@@ -1,0 +1,16 @@
+import joaquin.*
+import lucia.*
+import luisAlberto.*
+import lunaPark.*
+import laTrastienda.*
+import Presentacion.*
+
+describe "presentaciones"{
+	
+	
+	test "Joaquin cobra 50 por la presentancion del Luna Park"{
+		assert.equals(50,joaquin.cobra(lunaPark))
+	}
+	
+	
+}
