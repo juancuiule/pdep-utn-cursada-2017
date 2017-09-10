@@ -1,17 +1,24 @@
-
+import luisAlberto.*
+import joaquin.*
+import lucia.*
 class Presentacion {
 	var lugar
 	var fecha
 	var capacidad
+	var gentePresente
 	constructor (unLugar,unaFecha) {
 		lugar = unLugar
 		fecha = unaFecha
 		
 		if(self.esLunaPark()){
 			capacidad = 9290
+			gentePresente = #{luisAlberto,joaquin,lucia}
 		}else{ if(self.esSabado(unaFecha)){
 			capacidad = 700
-		}else {capacidad = 400}
+			gentePresente = #{luisAlberto,joaquin,lucia}
+		}else {	capacidad = 400
+				gentePresente = #{luisAlberto,joaquin,lucia}	
+		}
 			
 		}
 	}
