@@ -51,6 +51,7 @@ describe "Presentaciones" {
 	}
 
 	test "El costo de la presentacion en Luna Park es de 1550" {
+		presentacionEnLunaPark.fecha(new Date(15, 7, 2017))
 		fixturePresentaciones.agregarTodos(presentacionEnLunaPark)
 		assert.equals(1550, presentacionEnLunaPark.costo())
 	}
