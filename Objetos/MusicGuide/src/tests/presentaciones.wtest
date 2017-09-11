@@ -36,7 +36,7 @@ describe "Presentaciones" {
 
 	test "Lucia cobra 400 por la presentacion en la Trastienda" {
 		fixturePresentaciones.agregarTodos(presentacionEnLaTrastienda)
-		assert.equals(500, lucia.cobra(presentacionEnLaTrastienda))
+		assert.equals(400, lucia.cobra(presentacionEnLaTrastienda))
 	}
 
 	test "Luis Alberto cobra 1000 por la presentacion en Luna Park" {
