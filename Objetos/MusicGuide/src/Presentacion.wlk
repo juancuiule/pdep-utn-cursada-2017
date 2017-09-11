@@ -15,6 +15,10 @@ class Presentacion {
 	method fecha() {
 		return fecha
 	}
+	
+	method fecha(unaFecha){
+		fecha = unaFecha
+	}
 
 	method lugar() {
 		return lugar
