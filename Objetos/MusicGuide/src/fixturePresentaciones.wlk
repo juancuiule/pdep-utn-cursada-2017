@@ -3,7 +3,7 @@ import lucia.*
 import luisAlberto.*
 
 object fixturePresentaciones {
-  method agegarTodos(presentacion) {
+  method agregarTodos(presentacion) {
     presentacion.agregarArtista(joaquin)
     presentacion.agregarArtista(lucia)
     presentacion.agregarArtista(luisAlberto)
