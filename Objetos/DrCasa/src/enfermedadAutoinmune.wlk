@@ -1,19 +1,23 @@
 class EnfermedadAutoinmune {
 
-  var nombre
   var celulasAmenazadas
+  var diasEnElCuerpo = 0
 
-  constructor (unNombre, cantidadDeCelulasAmenazadas) {
-    nombre = unNombre
+  constructor (cantidadDeCelulasAmenazadas) {
     celulasAmenazadas = cantidadDeCelulasAmenazadas
   }
 
   method efectoSobrePersona(persona) {
+  	diasEnElCuerpo++
     persona.destruirCelulas(celulasAmenazadas)
   }
 
   method esAgresiva(persona) {
-    return persona.efectosDeLaEnfermedad() > 30
+    return diasEnElCuerpo > 30
+  }
+
+  method atenuarse(celulas) {
+    celulasAmenazadas = 0.max(celulasAmenazadas - celulas)
   }
 
   method celulasAmenazadas() {

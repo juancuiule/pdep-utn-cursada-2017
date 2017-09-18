@@ -1,0 +1,24 @@
+import persona.*
+import enfermedadAutoinmune.*
+import enfermedadInfecciosa.*
+
+describe "Dr Casa - Tests 2" {
+
+	var primerMalaria = new EnfermedadInfecciosa(500)
+	var otitis = new EnfermedadInfecciosa(700)
+	var lupus = new EnfermedadAutoinmune(10000)
+	var segundaMalaria = new EnfermedadInfecciosa(800)
+
+	var logan = new Persona(36, 3000000, #{primerMalaria, otitis, lupus})
+	var frank = new Persona(36, 3500000, #{})
+
+	test "la malaria que amenazaba 500 celulas se atenua en 100, ahora amenaza 400" {
+		primerMalaria.atenuarse(100)
+		assert.equals(400, primerMalaria.celulasAmenazadas())
+	}
+	
+	test "el lupus que amenazaba 10000 celulas se atenua en 500, ahora amenaza 9500" {
+		lupus.atenuarse(500)
+		assert.equals(9500, lupus.celulasAmenazadas())
+	}
+}

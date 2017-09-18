@@ -1,0 +1,42 @@
+import persona.*
+import enfermedadAutoinmune.*
+import enfermedadInfecciosa.*
+
+describe "Dr Casa - Tests" {
+
+	var primerMalaria = new EnfermedadInfecciosa(500)
+	var otitis = new EnfermedadInfecciosa(700)
+	var lupus = new EnfermedadAutoinmune(10000)
+	var segundaMalaria = new EnfermedadInfecciosa(800)
+
+	var logan = new Persona(36, 3000000, #{primerMalaria, otitis, lupus})
+	var frank = new Persona(36, 3500000, #{})
+
+	test "Frank contrae la 'segundaMalaria' (enfermedad del item b)" {
+		frank.contraerEnfermedad(segundaMalaria)
+		assert.that(frank.enfermedadesContraidas().contains(segundaMalaria))
+	}
+
+	test "La malaria de logan se reproduce la cantidad de celulas que amenaza se duplican" {
+		segundaMalaria.reproducirse()
+		assert.equals(1600, segundaMalaria.celulasAmenazadas())
+	}
+
+	test "La enfermedad que mas celulas le afecta a logan es lupus" {
+		assert.equals(lupus, logan.enfermedadMasDura())
+	}
+	
+	test "Las celulas afectadas por enfermedades agresivas de logan son 0" {
+		assert.equals(0, logan.celulasAfectadasPorEnfermedadesAgresivas())
+	}
+
+	test "La enfermedad que mas celulas le afecta a logan despues de 31 días es lupus" {
+		31.times{logan.pasarDia()}
+		assert.equals(lupus, logan.enfermedadMasDura())
+	}
+	
+	test "Las celulas afectadas por enfermedades agresivas de logan despues de 31 días son 10000" {
+		31.times{logan.pasarDia()}
+		assert.equals(10000, logan.celulasAfectadasPorEnfermedadesAgresivas())
+	}
+}
