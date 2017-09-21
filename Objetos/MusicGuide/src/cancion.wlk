@@ -1,12 +1,16 @@
 class Cancion {
-
+	
+	var titulo
 	var duracion
 	var letra
 	
-	constructor (unaDuracion,unaLetra){
+	constructor (unTitulo,unaDuracion,unaLetra){
+		titulo = unTitulo
 		duracion = unaDuracion
 		letra = unaLetra
 	}
+	
+	method titulo() = titulo
 	
 	method duracion() = duracion
 
