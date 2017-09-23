@@ -19,8 +19,8 @@ object joaquin {
   }
 
   method actuaSolo(presentacion) {
-	return presentacion.artistas().size() == 1 &&
-		presentacion.artistas().contains(self)
+	return presentacion.actuaUnoSolo() &&
+		presentacion.actua(self)
   }
 
   method cobra(presentacion) {
