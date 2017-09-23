@@ -4,7 +4,7 @@ class Cancion {
 	var duracion
 	var letra
 	
-	constructor (unTitulo,unaDuracion,unaLetra){
+	constructor (unTitulo,unaDuracion,unaLetra) {
 		titulo = unTitulo
 		duracion = unaDuracion
 		letra = unaLetra
@@ -14,7 +14,11 @@ class Cancion {
 	
 	method duracion() = duracion
 
-	method letra()=letra	
+	method letra() = letra	
+
+	method esCorta() {
+		return duracion < 3
+	}
 
 	method dice(palabra) {
 		return letra.contains(palabra)
