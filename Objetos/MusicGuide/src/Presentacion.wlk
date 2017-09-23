@@ -35,6 +35,14 @@ class Presentacion {
 	method esConcurrida() {
 		return lugar.capacidad(fecha) > 5000
 	}
+	
+	method actua(unArtista) {
+		artistas.contains(unArtista)
+	}
+
+	method actuaUnoSolo() {
+		return artistas.size() == 1
+	}
 
 	method costo() {
 		return artistas.sum{integrante => integrante.cobra(self)}
