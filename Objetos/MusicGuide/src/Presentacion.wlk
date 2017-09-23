@@ -32,6 +32,10 @@ class Presentacion {
 		return fecha >= new Date(1,9,2017)
 	}
 
+	method esConcurrida() {
+		return lugar.capacidad(fecha) > 5000
+	}
+
 	method costo() {
 		return artistas.sum{integrante => integrante.cobra(self)}
 	}

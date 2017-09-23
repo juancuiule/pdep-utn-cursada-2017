@@ -4,30 +4,30 @@ import luisAlberto.*
 import cancion.*
 
 describe "Canciones" {
-	const cisne = new Cancion(312,"Hoy el viento se abriÃ³ quedÃ³ vacÃ­o el aire una vez mÃ¡s y el manantial brotÃ³ y nadie estÃ¡ aquÃ­ y puedo ver que solo estallan las hojas al brillar")
+	const cisne = new Cancion(312,"Hoy el viento se abrió quedóa vacío el aire una vez más y el manantial brotá y nadie está aquá y puedo ver que solo estallan las hojas al brillar")
 	const laFamilia = new Cancion(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
 	
-	test "Joaquin no tiene que interpretar bien la canciÃ³n 'La Familia'" {
+	test "Joaquin no tiene que interpretar bien la canción 'La Familia'" {
 		assert.notThat(joaquin.interpretaBien(laFamilia))
 	}
 	
-	test "Joaquin tiene que interpretar bien la canciÃ³n 'Cisne'" {
+	test "Joaquin tiene que interpretar bien la canción 'Cisne'" {
 		assert.that(joaquin.interpretaBien(cisne))
 	}
 	
-	test "Lucia tiene que interpretar bien la canciÃ³n 'La Familia'" {
+	test "Lucia tiene que interpretar bien la canción 'La Familia'" {
 		assert.that(lucia.interpretaBien(laFamilia))
 	}
 	
-	test "Lucia no tiene que interpretar bien la canciÃ³n 'La Familia'" {
+	test "Lucia no tiene que interpretar bien la canción 'La Familia'" {
 		assert.notThat(lucia.interpretaBien(cisne))
 	}
 	
-	test "Luis Alberto tiene que interpretar bien la canciÃ³n 'La Familia'" {
+	test "Luis Alberto tiene que interpretar bien la canción 'La Familia'" {
 		assert.that(luisAlberto.interpretaBien(laFamilia))
 	}
 	
-	test "Luis Alberto tiene que interpretar bien la canciÃ³n 'Cisne'" {
+	test "Luis Alberto tiene que interpretar bien la canción 'Cisne'" {
 		assert.that(luisAlberto.interpretaBien(cisne))
 	}
 }
