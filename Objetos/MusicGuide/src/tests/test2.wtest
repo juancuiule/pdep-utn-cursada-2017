@@ -7,8 +7,8 @@ import Album.*
 import musico.*
 
 describe "Canciones" {
-	const crisantemo = new Cancion("Crisantemo",2.92,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
-	const almaDeDiamante = new Cancion("Alma de Diamante",3.6,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
+	const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
+	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
 	const kike = new MusicoDeGrupo("",60,#{},20)
 	const soledad = new VocalistaPopular("",55,#{} ,"amor")
 	const joaquin = new MusicoDeGrupo("",20,#{},0)
