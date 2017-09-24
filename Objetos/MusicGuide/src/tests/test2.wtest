@@ -1,13 +1,18 @@
-import joaquin.*
-import lucia.*
 import luisAlberto.*
 import lunaPark.*
 import laTrastienda.*
 import cancion.*
+import fixture2.*
+import Album.*
+import musico.*
 
 describe "Canciones" {
 	const crisantemo = new Cancion("Crisantemo",2.92,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
 	const almaDeDiamante = new Cancion("Alma de Diamante",3.6,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
+	const kike = new MusicoDeGrupo("",60,#{},20)
+	const soledad = new VocalistaPopular("",55,#{} ,"amor")
+	const joaquin = new MusicoDeGrupo("",20,#{},0)
+	const lucia = new VocalistaPopular("",70,#{},"")
 test "Saber si la canción “Crisantemo” es corta" {
 
 	assert.that(crisantemo.esCorta())
@@ -16,6 +21,12 @@ test "Saber si la canción “Crisantemo” es corta" {
 test "Saber si la canción “Alma de diamante” es corta" {
 
 	assert.notThat(almaDeDiamante.esCorta())
+
+	}
+	
+test "Saber si Soledad es minimalista" {
+	fixture2.nuevasRelaciones()
+	assert.that(soledad.esMinimalista())
 
 	}
 }
