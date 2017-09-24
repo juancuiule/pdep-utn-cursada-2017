@@ -12,7 +12,6 @@ object fixture2 {
 		const soledad = new VocalistaPopular("",55,#{} ,"amor")
 		const joaquin = new MusicoDeGrupo("",20,#{},0)
 		const lucia = new VocalistaPopular("",70,#{},"")
-		const luisAlberto = new VocalistaPopular("",8,#{},"")
 	
  		const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
  		
