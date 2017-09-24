@@ -31,6 +31,10 @@ class Musico {
 	method laPego() {
 		albumes.all({album => album.tieneBuenaVenta()})
 	}
+	
+	method compone(unAlbum){
+		albumes.add(unAlbum)
+	}
 }
 
 class MusicoDeGrupo inherits Musico {
