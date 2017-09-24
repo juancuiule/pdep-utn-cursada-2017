@@ -10,6 +10,8 @@ object fixture2 {
  	method nuevasRelaciones(){
  		const kike = new MusicoDeGrupo("",60,#{},20)
 		const soledad = new VocalistaPopular("",55,#{} ,"amor")
+		const joaquin = new MusicoDeGrupo("",20,#{},0)
+		const lucia = new VocalistaPopular("",70,#{},"")
 	
  		const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
  		const especialLaFamilia = new Album(new Date(17,6,92),100000,89000,#{laFamilia})
