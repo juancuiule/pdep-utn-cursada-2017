@@ -1,6 +1,5 @@
-object luisAlberto {
+object luisAlberto inherits Musico("",8,#{}) {
 	var guitarra
-	var grupo = ""
 
 	method tocaConGuitarra(unaGuitarra) {
 		guitarra = unaGuitarra
@@ -26,13 +25,6 @@ object luisAlberto {
 		}
 	}
 
-	method grupo(nuevoGrupo) {
-		grupo = nuevoGrupo
-	}
-
-	method dejarGrupo() {
-		grupo = ""
-	}
 }
 
 object fender {
