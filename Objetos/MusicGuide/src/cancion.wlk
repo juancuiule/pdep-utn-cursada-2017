@@ -17,7 +17,7 @@ class Cancion {
 	method letra() = letra	
 
 	method esCorta() {
-		return duracion < 3
+		return duracion <= 180
 	}
 
 	method dice(palabra) {
