@@ -1,6 +1,4 @@
 import musico.*
-import joaquin.*
-import lucia.*
 import luisAlberto.*
 import Album.*
 import cancion.*
@@ -25,11 +23,11 @@ object fixture2 {
  		const cisne = new Cancion("cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
  		const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
  		const paraLosArboles = new Album(new Date(31,3,03),50000,49000,#{cisne,almaDeDiamante})
- 		luisAlberto.compone(paraLosArboles)
+ 		//luisAlberto.compone(paraLosArboles)
  		
  		const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
  		const justCrisantemo = new Album(new Date(5,12,07),28000,27500,#{crisantemo})
- 		luisAlberto.compone(justCrisantemo)
+ 		//luisAlberto.compone(justCrisantemo)
  	}
 	
 
