@@ -1,3 +1,5 @@
+import musico.*
+
 object luisAlberto inherits Musico("",8,#{}) {
 	var guitarra
 
