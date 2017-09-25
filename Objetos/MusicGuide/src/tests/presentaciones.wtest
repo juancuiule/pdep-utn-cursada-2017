@@ -1,23 +1,22 @@
-import joaquin.*
-import lucia.*
 import luisAlberto.*
 import lunaPark.*
 import laTrastienda.*
 import Presentacion.*
-import fixturePresentaciones.*
+import musico.*
 
 describe "Presentaciones" {
-	var presentacionEnLunaPark = new Presentacion(lunaPark, new Date(15, 11, 2017))
-	var presentacionEnLaTrastienda = new Presentacion(laTrastienda, new Date (15, 11, 2017))
-
+	const presentacionEnLunaPark = new Presentacion(lunaPark, new Date(15, 11, 2017))
+	const presentacionEnLaTrastienda = new Presentacion(laTrastienda, new Date (15, 11, 2017))
+	const joaquin = new MusicoDeGrupo("Pimpinela",20,#{},5)
+	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
 
 	test "Joaquin cobra 50 por la presentancion del Luna Park" {
-		fixturePresentaciones.agregarTodos(presentacionEnLunaPark)
+		presentacionEnLunaPark.artistas(#{luisAlberto, lucia, joaquin})
 		assert.equals(50, joaquin.cobra(presentacionEnLunaPark))
 	}
 
 	test "Joaquin cobra 100 por la presentancion de la Trastienda, tocando solo" {
-		presentacionEnLaTrastienda.agregarArtista(joaquin)
+		presentacionEnLaTrastienda.artistas(#{joaquin})
 		assert.equals(100, joaquin.cobra(presentacionEnLaTrastienda))
 	}
 
@@ -30,34 +29,34 @@ describe "Presentaciones" {
 	}
 
 	test "Lucia cobra 500 por la presentacion en Luna Park" {
-		fixturePresentaciones.agregarTodos(presentacionEnLunaPark)
+		presentacionEnLunaPark.artistas(#{luisAlberto, lucia, joaquin})
 		assert.equals(500, lucia.cobra(presentacionEnLunaPark))
 	}
 
 	test "Lucia cobra 400 por la presentacion en la Trastienda" {
-		fixturePresentaciones.agregarTodos(presentacionEnLaTrastienda)
+		presentacionEnLaTrastienda.artistas(#{luisAlberto, lucia, joaquin})
 		assert.equals(400, lucia.cobra(presentacionEnLaTrastienda))
 	}
 
 	test "Luis Alberto cobra 1000 por la presentacion en Luna Park" {
 		presentacionEnLunaPark.fecha(new Date(15, 7, 2017))
-		fixturePresentaciones.agregarTodos(presentacionEnLunaPark)
+		presentacionEnLunaPark.artistas(#{luisAlberto, lucia, joaquin})
 		assert.equals(1000, luisAlberto.cobra(presentacionEnLunaPark))
 	}
 
 	test "Luis Alberto cobra 1200 por la presentacion en la Trastienda" {
-		fixturePresentaciones.agregarTodos(presentacionEnLaTrastienda)
+		presentacionEnLaTrastienda.artistas(#{luisAlberto, lucia, joaquin})
 		assert.equals(1200, luisAlberto.cobra(presentacionEnLaTrastienda))
 	}
 
 	test "El costo de la presentacion en Luna Park es de 1550" {
 		presentacionEnLunaPark.fecha(new Date(15, 7, 2017))
-		fixturePresentaciones.agregarTodos(presentacionEnLunaPark)
+		presentacionEnLunaPark.artistas(#{luisAlberto, lucia, joaquin})
 		assert.equals(1550, presentacionEnLunaPark.costo())
 	}
 
 	test "El costo de la presentacion en la Trastienda es de 1650" {
-		fixturePresentaciones.agregarTodos(presentacionEnLaTrastienda)
+		presentacionEnLaTrastienda.artistas(#{luisAlberto, lucia, joaquin})
 		assert.equals(1650, presentacionEnLaTrastienda.costo())
 	}
 

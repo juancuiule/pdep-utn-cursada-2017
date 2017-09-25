@@ -1,27 +1,25 @@
-import joaquin.*
-import lucia.*
 import luisAlberto.*
+import musico.*
 
 describe "Cantantes" {
 	
-	test "Joaqu√≠n canta en el grupo Pimpinela, su habilidad es 25" {
-		joaquin.grupo("Pimpinela")
+	const joaquin = new MusicoDeGrupo("Pimpinela",20,#{},5)
+	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
+	
+	test "JoaquÌn canta en el grupo Pimpinela, su habilidad es 25" {
 		assert.equals(joaquin.habilidad(), 25)
 	}
 	
-	test "Joaqu√≠n canta en el grupo Pimpinela, y decide lanzar su carrera solista (deja el grupo), su habilidad es 20" {
-		joaquin.grupo("Pimpinela")
+	test "JoaquÌn canta en el grupo Pimpinela, y decide lanzar su carrera solista (deja el grupo), su habilidad es 20" {
 		joaquin.dejarGrupo()
 		assert.equals(joaquin.habilidad(), 20)
 	}
 	
-	test "Luc√≠a canta en el grupo Pimpinela, su habilidad es 50" {
-		lucia.grupo("Pimpinela")
+	test "LucÌa canta en el grupo Pimpinela, su habilidad es 50" {
 		assert.equals(lucia.habilidad(), 50)
 	}
 	
-	test "Luc√≠a canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo), su habilidad es 70" {
-		lucia.grupo("Pimpinela")
+	test "LucÌa canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo), su habilidad es 70" {
 		lucia.dejarGrupo()
 		assert.equals(lucia.habilidad(), 70)
 	}
@@ -36,7 +34,7 @@ describe "Cantantes" {
 		assert.equals(luisAlberto.habilidad(), 100)
 	}
 	
-	test "Luis Alberto toca ahora con la Gibson que no est√° sana, su habilidad es 40" {
+	test "Luis Alberto toca ahora con la Gibson que no est· sana, su habilidad es 40" {
 		luisAlberto.tocaConGuitarra(gibson)
 		luisAlberto.trataMalAGuitarra()
 		assert.equals(luisAlberto.habilidad(), 40)
