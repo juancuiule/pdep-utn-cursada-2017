@@ -14,8 +14,13 @@ class Musico {
 		return grupo != ""
 	}
 	
+	method actuaSolo(presentacion) {
+		return presentacion.actuaUnoSolo() &&
+			presentacion.actua(self)
+	}
+	
 	method esMinimalista() {
-		albumes.all({album => album.esAlbumMinimalista()})
+		return albumes.all({album => album.esAlbumMinimalista()})
 	}
 	
 	method cancionesQueNombran(palabra) {
@@ -26,6 +31,10 @@ class Musico {
 		return albumes.fold(0, {
 			total, album => return total + album.duracion()
 		})
+	}
+	
+	method dejarGrupo() {
+		grupo = ""
 	}
 	
 	method laPego() {
@@ -45,6 +54,10 @@ class MusicoDeGrupo inherits Musico {
 		super(unGrupo, unaHabilidad, unosAlbumes) {
         aumento = unAumento
     }
+    
+  method interpretaBien(cancion) {
+		return cancion.duracion() > 300
+	}
 	
 	method habilidad() {
 		if(self.estaEnGrupo()) {
@@ -53,6 +66,14 @@ class MusicoDeGrupo inherits Musico {
 	    	return habilidad
 	  	}
   	}
+  	
+  method cobra(presentacion) {
+	  if(self.actuaSolo(presentacion)) {
+	    return 100
+	  } else {
+	    return 50
+		}
+	}
 	
 }
 
@@ -69,4 +90,20 @@ class VocalistaPopular inherits Musico {
 		return cancion.dice(palabra)
 	}
 	
+	method habilidad() {
+	    if(self.estaEnGrupo()) {
+	    	return habilidad - 20
+	    } else { 
+	    	return habilidad
+	  	}
+	}
+	
+	method cobra(presentacion) {
+		if(presentacion.esConcurrida()) {
+			return 500	
+		} else {
+			return 400
+		}
+	}
+
 }
