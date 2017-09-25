@@ -6,7 +6,7 @@ describe "Canciones" {
 	const joaquin = new MusicoDeGrupo("Pimpinela",20,#{},5)
 	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
 	
-	const cisne = new Cancion("Cisne",312,"Hoy el viento se abrió quedï¿½a vacío el aire una vez más y el manantial brotï¿½ y nadie estï¿½ aquï¿½ y puedo ver que solo estallan las hojas al brillar")
+	const cisne = new Cancion("Cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
 	const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
 	
 	test "Joaquin no tiene que interpretar bien la canción 'La Familia'" {
