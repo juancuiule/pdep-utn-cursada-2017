@@ -7,26 +7,38 @@ import Album.*
 import musico.*
 
 describe "Canciones" {
-	const crisantemo = new Cancion("Crisantemo",175,"TÛcame junto a esta pared, yo quede por aquÌ... cuando no hubo m·s luz... quiero mirar a travÈs de mi piel... Crisantemo, que se abriÛ... encuentra el camino hacia el cielo")
-	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mÌ con tu dulce luz alma de diamante. Y aunque el sol se nuble despuÈs sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asÌ con la humanidad alma de diamante")
+	const crisantemo = new Cancion("Crisantemo",175,"T√≥came junto a esta pared, yo quede por aqu√≠... cuando no hubo m√°s luz... quiero mirar a trav√©s de mi piel... Crisantemo, que se abri√≥... encuentra el camino hacia el cielo")
+	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a m√≠ con tu dulce luz alma de diamante. Y aunque el sol se nuble despu√©s sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven as√≠ con la humanidad alma de diamante")
 	const kike = new MusicoDeGrupo("",60,#{},20)
 	const soledad = new VocalistaPopular("",55,#{} ,"amor")
 	const joaquin = new MusicoDeGrupo("",20,#{},0)
 	const lucia = new VocalistaPopular("",70,#{},"")
-test "Saber si la canciÛn ìCrisantemoî es corta" {
+
+test "La canci√≥n ‚ÄúCrisantemo‚Äù es corta" {
 
 	assert.that(crisantemo.esCorta())
 
 	}
-test "Saber si la canciÛn ìAlma de diamanteî es corta" {
+test "La canci√≥n ‚ÄúAlma de diamante‚Äù no es corta" {
 
 	assert.notThat(almaDeDiamante.esCorta())
 
 	}
 	
-test "Saber si Soledad es minimalista" {
+test "Soledad es minimalista" {
 	fixture2.nuevasRelaciones()
 	assert.that(soledad.esMinimalista())
 
+	}
+test "La obra de Kike dura  0 segundos"{
+	assert.equals(0, kike.duracionDeObra())
+	}
+	
+test "La obra de Soledad dura 299 segundos"{
+	assert.equals(299, soledad.duracionDeObra())
+	}
+	
+test "La obra de luisAlberto dura 703 segundos"{
+	assert.equals(703, luisAlberto.duracionDeObra())
 	}
 }
