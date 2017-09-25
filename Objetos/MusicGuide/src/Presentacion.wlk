@@ -37,7 +37,7 @@ class Presentacion {
 	}
 	
 	method actua(unArtista) {
-		artistas.contains(unArtista)
+		return artistas.contains(unArtista)
 	}
 
 	method actuaUnoSolo() {
@@ -48,7 +48,7 @@ class Presentacion {
 		return artistas.sum{integrante => integrante.cobra(self)}
 	}
 
-	method agregarArtista(unArtista) {
-		artistas.add(unArtista)
+	method artistas(unosArtistas) {
+		artistas = unosArtistas
 	}
 }
