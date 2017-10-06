@@ -37,5 +37,8 @@ class Album {
 		
 	method tieneBuenaVenta(){
 		return (unidadesEnVenta * 0.75) < unidadesVendidas
-	}	
+	}
+	method estaEnElAlbumLaCancion(cancion){
+		return canciones.contains(cancion)
+	}		
 }
