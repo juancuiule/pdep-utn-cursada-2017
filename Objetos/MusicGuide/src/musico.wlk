@@ -44,6 +44,9 @@ class Musico {
 	method compone(unAlbum){
 		albumes.add(unAlbum)
 	}
+	method interpretaBien(cancion){
+		return habilidad > 60 or albumes.any({album => album.estaEnElAlbumLaCancion(cancion)})
+	}
 }
 
 class MusicoDeGrupo inherits Musico {
