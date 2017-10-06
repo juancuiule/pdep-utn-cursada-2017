@@ -58,8 +58,8 @@ class MusicoDeGrupo inherits Musico {
         aumento = unAumento
     }
     
-  method interpretaBien(cancion) {
-		return cancion.duracion() > 300
+	override method interpretaBien(cancion){
+		return cancion.duracion() > 300 and super(cancion)
 	}
 	
 	method habilidad() {
@@ -89,8 +89,8 @@ class VocalistaPopular inherits Musico {
      	palabra = unaPalabra   
     }
 	
-	method interpretaBien(cancion) {
-		return cancion.dice(palabra)
+	override method interpretaBien(cancion) {
+		return cancion.dice(palabra) and super(cancion)
 	}
 	
 	method habilidad() {
