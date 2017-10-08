@@ -50,5 +50,10 @@ class Album {
 		return unaCancion.cantidadDeLetras() > otraCancion.cantidadDeLetras()
 		
 	}
+	method compararCancionPorTitulo(unaCancion,otraCancion){
+		return unaCancion.cantidadDeLetrasTitulo() > otraCancion.cantidadDeLetrasTitulo()
+		
+	}
+
 }
 
