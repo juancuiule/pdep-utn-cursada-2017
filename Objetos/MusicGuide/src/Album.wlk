@@ -44,20 +44,20 @@ class Album {
 	}
 	method compararCancionPorDuracion(unaCancion,otraCancion){
 		return unaCancion.duracion() > otraCancion.duracion()
-	}
+	}//Retorna BOOL, deberia ir en un fold, el enunciado pide comparar 2 canciones por estos criterios
 
 	method compararCancionPorLetra(unaCancion,otraCancion){
 		return unaCancion.cantidadDeLetras() > otraCancion.cantidadDeLetras()
 		
-	}
+	}//Retorna BOOL, deberia ir en un fold, el enunciado pide comparar 2 canciones por estos criterios
 	method compararCancionPorTitulo(unaCancion,otraCancion){
 		return unaCancion.cantidadDeLetrasTitulo() > otraCancion.cantidadDeLetrasTitulo()
 		
-	}
+	}//Retorna BOOL, deberia ir en un fold, el enunciado pide comparar 2 canciones por estos criterios
 	
 	method mayorCancionAlbumPorDuracion(){
 		return canciones.fold(canciones.head(),{unaCancion,otraCancion => self.compararCancionPorDuracion(unaCancion,otraCancion)})
-	}
+	} // NO FUNCIONA, NO TOMA EL "canciones.head()" que seria el inicio del fold.
 
 }
 
