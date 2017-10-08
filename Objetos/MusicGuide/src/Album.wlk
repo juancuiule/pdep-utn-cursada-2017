@@ -64,24 +64,36 @@ class Album {
 
 }
 
-//object duracion{
+object duracion{
+	method compararCancion(unaCancion,otraCancion){
+	if(unaCancion.duracion() > otraCancion.duracion()){
+				return unaCancion
+		}else{
+				return otraCancion
+				}
+	}
+}
+
+object titulo{
 	
-//	method compararCancionPorDuracion(unaCancion,otraCancion){
-//		return unaCancion.duracion() > otraCancion.duracion()
-//	}
-//}
-//object titulo{
+	method compararCancion(unaCancion,otraCancion){
+		if(unaCancion.cantidadDeLetrasTitulo() > otraCancion.cantidadDeLetrasTitulo()){
+				return unaCancion
+		}else{
+				return otraCancion
+				}
+	}
+}
+
+object letra{
+	method compararCancion(unaCancion,otraCancion){
+	if(unaCancion.cantidadDeLetras() > otraCancion.cantidadDeLetras()){
+		return unaCancion
+	}else{
+		return otraCancion
+		}
+	}
 	
-//	method compararCancionPorTitulo(unaCancion,otraCancion){
-//		return unaCancion.cantidadDeLetrasTitulo() > otraCancion.cantidadDeLetrasTitulo()
-//		
-//	}
-//}
-//object letra{
-	
-//	method compararCancionPorLetra(unaCancion,otraCancion){
-//		return unaCancion.cantidadDeLetras() > otraCancion.cantidadDeLetras()
-//		
-//	}
+}
 
 
