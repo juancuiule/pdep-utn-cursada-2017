@@ -54,6 +54,10 @@ class Album {
 		return unaCancion.cantidadDeLetrasTitulo() > otraCancion.cantidadDeLetrasTitulo()
 		
 	}
+	
+	method mayorCancionAlbumPorDuracion(){
+		return canciones.fold(canciones.head(),{unaCancion,otraCancion => self.compararCancionPorDuracion(unaCancion,otraCancion)})
+	}
 
 }
 
