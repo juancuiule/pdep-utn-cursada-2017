@@ -1,3 +1,4 @@
+import cancion.*
 class Album {
 	var fechaDeLanzamiento
 	var unidadesEnVenta
@@ -40,5 +41,9 @@ class Album {
 	}
 	method estaEnElAlbumLaCancion(cancion){
 		return canciones.contains(cancion)
-	}		
+	}
+	method compararCancionPorDuracion(unaCancion,otraCancion){
+		return unaCancion.duracion() > otraCancion.duracion()
+	}
+}
 }
