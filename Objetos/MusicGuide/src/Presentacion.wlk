@@ -51,11 +51,12 @@ class Presentacion {
 	method artistas(unosArtistas) {
 		artistas = unosArtistas
 	}
+
 	
 	
 	method agregarArtista(unArtista){
-		if(unArtista.habilidad()<70){
-			error.throwWithMessage("No se puede aceptar a un musico con habilidad menor a 70")
+		if(unArtista.habilidad()<70|| unArtista.noTieneCanciones()){
+			error.throwWithMessage("No se puede aceptar a este musico ")
 		}
 		artistas.add(unArtista)
 	}
