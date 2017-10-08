@@ -26,5 +26,8 @@ class Cancion {
 	method cantidadDeLetrasTitulo(){
 		return self.titulo().size()
 	}
+	method cantidadDeLetras(){
+		return self.letra().size()
+	}
 
 }
