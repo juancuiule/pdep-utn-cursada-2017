@@ -62,11 +62,11 @@ describe "Canciones" {
 	}
 		
 	test "La cancion mas larga del Album Para los Arboles es Alma De Diamante"{
-		assert.equals(cisne, paraLosArboles.cancionMasLarga())
+		assert.equals(almaDeDiamante, paraLosArboles.cancionMasLarga())
 	}
 	
 	test "La cancion mas larga del La Sole es Eres"{
-		assert.equals(corazonAmericano, laSole.cancionMasLarga())
+		assert.equals(eres, laSole.cancionMasLarga())
 	}
 	
 	test "La cancion mas larga del Album Especial La Familia es La Familia"{

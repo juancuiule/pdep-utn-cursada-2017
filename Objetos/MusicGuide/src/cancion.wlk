@@ -29,5 +29,8 @@ class Cancion {
 	method cantidadDeLetras(){
 		return self.letra().size()
 	}
+	method cantidadDePalabras() {
+		return letra.split(" ").size()
+	}
 
 }
