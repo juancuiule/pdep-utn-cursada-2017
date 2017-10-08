@@ -1,0 +1,18 @@
+import Presentacion.*
+import musico.*
+import lunaPark.*
+import cancion.*
+
+
+describe "Pdpalooza"{
+	const pdpalooza = new Presentacion(lunaPark, new Date(15, 12, 2017))
+	const alicia = new Cancion("Canción de Alicia en el país",510,"Quién sabe Alicia, este país no estuvo hecho porque sí. Te vas a ir, vas a salir pero te quedas, ¿dónde más vas a ir? Y es que aquí, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabó ese juego que te hacía feliz.")
+	const joaquin = new MusicoDeGrupo("Pimpinela",20,#{},5)
+	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
+	
+	
+	test "Pdpalooza no acepta a Lucia,porque su habilidad es 50" {
+		pdpalooza.agregarArtista(lucia)
+		assert.equals(#{},pdpalooza.artistas())
+	}
+}
