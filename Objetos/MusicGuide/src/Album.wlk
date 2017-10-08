@@ -58,6 +58,30 @@ class Album {
 	method mayorCancionAlbumPorDuracion(){
 		return canciones.fold(canciones.head(),{unaCancion,otraCancion => self.compararCancionPorDuracion(unaCancion,otraCancion)})
 	} // NO FUNCIONA, NO TOMA EL "canciones.head()" que seria el inicio del fold.
+	method compararCancionesPor(unaCancion,otraCancion,criterio){
+		//Deberia ser asi, creo yo, dejo un modelo abajo seguramente esta mal
+	}
 
 }
+
+//object duracion{
+	
+//	method compararCancionPorDuracion(unaCancion,otraCancion){
+//		return unaCancion.duracion() > otraCancion.duracion()
+//	}
+//}
+//object titulo{
+	
+//	method compararCancionPorTitulo(unaCancion,otraCancion){
+//		return unaCancion.cantidadDeLetrasTitulo() > otraCancion.cantidadDeLetrasTitulo()
+//		
+//	}
+//}
+//object letra{
+	
+//	method compararCancionPorLetra(unaCancion,otraCancion){
+//		return unaCancion.cantidadDeLetras() > otraCancion.cantidadDeLetras()
+//		
+//	}
+
 
