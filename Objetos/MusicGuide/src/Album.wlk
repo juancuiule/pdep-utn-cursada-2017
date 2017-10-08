@@ -59,7 +59,7 @@ class Album {
 		return canciones.fold(canciones.head(),{unaCancion,otraCancion => self.compararCancionPorDuracion(unaCancion,otraCancion)})
 	} // NO FUNCIONA, NO TOMA EL "canciones.head()" que seria el inicio del fold.
 	method compararCancionesPor(unaCancion,otraCancion,criterio){
-		//Deberia ser asi, creo yo, dejo un modelo abajo seguramente esta mal
+		return criterio.compararCancion(unaCancion,otraCancion)
 	}
 
 }
