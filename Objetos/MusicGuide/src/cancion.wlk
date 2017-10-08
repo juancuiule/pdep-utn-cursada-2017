@@ -23,4 +23,8 @@ class Cancion {
 	method dice(palabra) {
 		return letra.contains(palabra)
 	}
+	method cantidadDeLetrasTitulo(){
+		return self.titulo().size()
+	}
+
 }
