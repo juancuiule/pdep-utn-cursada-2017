@@ -45,5 +45,10 @@ class Album {
 	method compararCancionPorDuracion(unaCancion,otraCancion){
 		return unaCancion.duracion() > otraCancion.duracion()
 	}
+
+	method compararCancionPorLetra(unaCancion,otraCancion){
+		return unaCancion.cantidadDeLetras() > otraCancion.cantidadDeLetras()
+		
+	}
 }
-}
+
