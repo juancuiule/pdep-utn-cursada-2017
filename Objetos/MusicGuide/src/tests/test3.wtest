@@ -30,6 +30,9 @@ describe "Pdpalooza"{
 	test "La cancion que mas letra tiene del album paraLosArboles es almaDeDiamante"{
 		assert.equals(almaDeDiamante,paraLosArboles.mayorCancionAlbumSegun({cancion=>cancion.cantidadDeLetras()}))
 	}
+	test "La cancion que tiene titulo mas largo del album paraLosArboles es almaDeDiamante"{
+		assert.equals(almaDeDiamante,paraLosArboles.mayorCancionAlbumSegun({cancion=>cancion.cantidadDeLetrasTitulo()}))
+	}
 	
 	
 	
