@@ -16,6 +16,8 @@ describe "Pdpalooza"{
 	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
 	const cisne = new Cancion("cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
  	const paraLosArboles = new Album(new Date(31,3,03),50000,49000,#{cisne,almaDeDiamante})
+	const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
+	const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
 
 	test "Pdpalooza acepta a Joaquin" {//tiene habilidad=85 ,compuso una cancion y sabe interpretar alicia
 		assert.throwsException(pdpalooza.agregarArtista(joaquin,alicia))
@@ -33,7 +35,7 @@ describe "Pdpalooza"{
 	test "La cancion que tiene titulo mas largo del album paraLosArboles es almaDeDiamante"{
 		assert.equals(almaDeDiamante,paraLosArboles.mayorCancionAlbumSegun({cancion=>cancion.cantidadDeLetrasTitulo()}))
 	}
-	
-	
-	
+	test "La cancion eres no esta en el album paraLosArboles"{
+		assert.notThat(paraLosArboles.estaEnElAlbumLaCancion(eres))
+	}
 }
