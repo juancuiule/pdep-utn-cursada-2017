@@ -3,7 +3,7 @@ class Presentacion {
 	var fecha
 	var artistas = #{}
 
-	constructor (unLugar,unaFecha) {
+	constructor (unLugar, unaFecha) {
 		lugar = unLugar
 		fecha = unaFecha
 	}
@@ -50,18 +50,5 @@ class Presentacion {
 
 	method artistas(unosArtistas) {
 		artistas = unosArtistas
-	}
-
-	
-	
-	method agregarArtista(unArtista,unaCancion){
-		if(unArtista.habilidad()<70|| unArtista.noTieneCanciones()||not(unArtista.interpretaBien(unaCancion))){
-			error.throwWithMessage("No se puede aceptar a este musico ")
-		}
-		artistas.add(unArtista)
-	}
-	
-	
-	
-	
+	}	
 }
