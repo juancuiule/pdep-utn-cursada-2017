@@ -38,4 +38,7 @@ describe "Pdpalooza"{
 	test "La cancion eres no esta en el album paraLosArboles"{
 		assert.notThat(paraLosArboles.estaEnElAlbumLaCancion(eres))
 	}
+	test "La cancion eres esta en el album laSole"{
+		assert.that(laSole.estaEnElAlbumLaCancion(eres))
+	}
 }
