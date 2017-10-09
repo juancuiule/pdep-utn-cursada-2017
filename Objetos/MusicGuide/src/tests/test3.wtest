@@ -11,14 +11,13 @@ describe "Pdpalooza"{
 	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
 	
 	
-	
 
-	test "Pdpalooza acepta a Joaquin" {//tiene habilidad=85  una cancion
-		assert.throwsException(pdpalooza.agregarArtista(joaquin))
+	test "Pdpalooza acepta a Joaquin" {//tiene habilidad=85 ,compuso una cancion y sabe interpretar alicia
+		assert.throwsException(pdpalooza.agregarArtista(joaquin,alicia))
 	}
 	
 	test "Pdpalooza acepta a Lucia" {// tiene habilidad 50
-		assert.throwsException(pdpalooza.agregarArtista(lucia))
+		assert.throwsException(pdpalooza.agregarArtista(lucia,alicia))
 	}
 	
 	
