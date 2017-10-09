@@ -28,9 +28,7 @@ class Musico {
 	}
 	
 	method duracionDeObra() {
-		return albumes.fold(0, {
-			total, album => return total + album.duracion()
-		})
+		return albumes.sum({album => album.duracion()})
 	}
 	
 	method dejarGrupo() {
@@ -44,10 +42,10 @@ class Musico {
 	method compone(unAlbum){
 		albumes.add(unAlbum)
 	}
+	
 	method interpretaBien(cancion){
 		return habilidad > 60 or albumes.any({album => album.estaEnElAlbumLaCancion(cancion)})
 	}
-	
 	
 	method noTieneCanciones(){
 		return albumes.isEmpty()
