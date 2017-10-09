@@ -19,6 +19,7 @@ describe "Pdpalooza"{
  	const luisMiguel = new VocalistaPopular("", 80, #{paraLosArboles}, "lluvia")
 	const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
 	const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	const soledad = new VocalistaPopular("",55,#{laSole} ,"vida")
 
 	test "Pdpalooza acepta a Joaquin" {
 		pdpalooza.agregarArtista(joaquin)
@@ -53,14 +54,14 @@ describe "Pdpalooza"{
 	test "La cancion eres esta en el album laSole"{
 		assert.that(laSole.estaEnElAlbumLaCancion(eres))
 	}
-	test "La Sole interpreta bien la cancion 'eres' ya que es una cancion de su autoria"{
-		assert.that(laSole.interpretaBien(eres))
+	test "Soledad interpreta bien la cancion 'eres' ya que es una cancion de su autoria"{
+		assert.that(soledad.interpretaBien(eres))
 	}
-	test "Lucia interpreta bien la cancion 'almaDeDiamante' ya que su habilidad es mayor a 60"{
-		assert.that(lucia.interpretaBien(almaDeDiamante))
+	test "Lucia no interpreta bien la cancion 'almaDeDiamante' porque no dice 'familia'"{
+		assert.notThat(lucia.interpretaBien(almaDeDiamante))
 	}
-	test "Joaquin interpreta bien la cancion 'almaDeDiamante' ya que su habilidad es mayor a 60"{
-		assert.that(joaquin.interpretaBien(almaDeDiamante))
+	test "Joaquin no interpreta bien la cancion 'almaDeDiamante' porque dura menos de 300 segundos"{
+		assert.notThat(joaquin.interpretaBien(almaDeDiamante))
 	}
 	test "Joaquin (que es musico de grupo) interpreta bien la cancion 'cisne' ya que dura mas de 300 segundos"{
 		assert.that(joaquin.interpretaBien(cisne))
