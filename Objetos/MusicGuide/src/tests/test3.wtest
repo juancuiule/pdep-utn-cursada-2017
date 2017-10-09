@@ -2,14 +2,17 @@ import Presentacion.*
 import musico.*
 import lunaPark.*
 import cancion.*
-
+import Album.*
+import cancion.*
 
 describe "Pdpalooza"{
 	const pdpalooza = new Presentacion(lunaPark, new Date(15, 12, 2017))
 	const alicia = new Cancion("CanciÃ³n de Alicia en el paÃ­s",510,"QuiÃ©n sabe Alicia, este paÃ­s no estuvo hecho porque sÃ­. Te vas a ir, vas a salir pero te quedas, Â¿dÃ³nde mÃ¡s vas a ir? Y es que aquÃ­, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabÃ³ ese juego que te hacÃ­a feliz.")
 	const joaquin = new MusicoDeGrupo("Pimpinela",80,#{alicia},5)
 	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
-	
+	const eres = new Cancion("eres",145,"Eres lo mejor que me pasó en la vida, no tengo duda, no habrá más nada después de ti. Eres lo que le dio brillo al día a día, y así será por siempre, no cambiará, hasta el final de mis días.")
+ 	const corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazón, canta más alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazón, como soñamos")
+ 	const laSole = new Album(new Date(4,2,05),200000,130000,#{eres,corazonAmericano})
 	
 
 	test "Pdpalooza acepta a Joaquin" {//tiene habilidad=85 ,compuso una cancion y sabe interpretar alicia
@@ -18,6 +21,9 @@ describe "Pdpalooza"{
 	
 	test "Pdpalooza acepta a Lucia" {// tiene habilidad 50
 		assert.throwsException(pdpalooza.agregarArtista(lucia,alicia))
+	}
+	test "La cancion que mas tiempo dura del album laSole es corazonAmericano"{
+		assert.equals(corazonAmericano,laSole.mayorCancionAlbumSegun({cancion=>cancion.duracion()}))
 	}
 	
 	
