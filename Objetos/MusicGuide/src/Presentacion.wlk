@@ -54,8 +54,8 @@ class Presentacion {
 
 	
 	
-	method agregarArtista(unArtista){
-		if(unArtista.habilidad()<70|| unArtista.noTieneCanciones()){
+	method agregarArtista(unArtista,unaCancion){
+		if(unArtista.habilidad()<70|| unArtista.noTieneCanciones()||not(unArtista.interpretaBien(unaCancion))){
 			error.throwWithMessage("No se puede aceptar a este musico ")
 		}
 		artistas.add(unArtista)
