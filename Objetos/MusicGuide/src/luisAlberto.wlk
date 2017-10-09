@@ -15,10 +15,11 @@ object luisAlberto inherits Musico("",8,#{}) {
 		return 100.min(8*guitarra.valor())
   	}
 
-	method interpretaBien(cancion) {
+	override method interpretaBien(cancion) {
 		return true
 	}
-
+	
+	
  	method cobra(presentacion) {
 		if (presentacion.sePasaDeSeptiembre()) {
 			return 1200

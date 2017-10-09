@@ -47,6 +47,11 @@ class Musico {
 	method interpretaBien(cancion){
 		return habilidad > 60 or albumes.any({album => album.estaEnElAlbumLaCancion(cancion)})
 	}
+	
+	
+	method noTieneCanciones(){
+		return albumes.isEmpty()
+	}
 }
 
 class MusicoDeGrupo inherits Musico {

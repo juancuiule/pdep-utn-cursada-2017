@@ -51,5 +51,4 @@ class Album {
 	method mayorCancionAlbumSegun(criterio){
 		return canciones.max(criterio)
 	}
-
 }
