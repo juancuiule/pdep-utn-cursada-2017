@@ -34,3 +34,23 @@ class Cancion {
 	}
 
 }
+
+class Remix inherits Cancion {
+	constructor(cancionOriginal) = 
+		super (
+			cancionOriginal.titulo(),
+			cancionOriginal.duracion() * 3,
+			"mueve tu cuelpo baby " + cancionOriginal.letra() + " yeah oh yeah"
+		)
+}
+
+class Mashup inherits Cancion {
+	constructor(canciones) = 
+		super (
+			"Mashup",
+			canciones.max({cancion => cancion.duracion()}).duracion(),
+			canciones.fold(canciones.asList().head().letra(),
+				{unaLetra, otraCancion => unaLetra.trim() + " " + otraCancion.letra().trim()}
+			)
+		)
+}
