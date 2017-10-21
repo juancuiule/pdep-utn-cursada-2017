@@ -28,12 +28,20 @@ class Presentacion {
 		return artistas
 	}
 
+	method sePasaDe(unaFecha) {
+		return fecha >= unaFecha
+	}
+
 	method sePasaDeSeptiembre() {
-		return fecha >= new Date(1,9,2017)
+		return self.sePasaDe(new Date(1,9,2017))
 	}
 
 	method esConcurrida() {
 		return lugar.capacidad(fecha) > 5000
+	}
+
+	method capacidad() {
+		return lugar.capacidad(fecha)
 	}
 	
 	method actua(unArtista) {

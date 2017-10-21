@@ -3,6 +3,8 @@ class Musico {
 	var habilidad
 	var albumes
 	var grupo = ""
+	var tipoDeInterprete
+	var tipoDeCobrador
 
 	constructor(unGrupo, unaHabilidad, unosAlbumes){
 		grupo = unGrupo
@@ -26,45 +28,145 @@ class Musico {
 	method cancionesQueNombran(palabra) {
 		return albumes.flatMap({album => album.cancionesQueDicen(palabra)})
 	}
-	
+
 	method duracionDeObra() {
 		return albumes.sum({album => album.duracion()})
 	}
-	
+
 	method dejarGrupo() {
 		grupo = ""
 	}
-	
+
 	method laPego() {
 		albumes.all({album => album.tieneBuenaVenta()})
 	}
-	
+
 	method compone(unAlbum){
 		albumes.add(unAlbum)
 	}
-	
-	method interpretaBien(cancion){
+
+	method interpretaBasico(cancion) {
 		return habilidad > 60 or albumes.any({album => album.estaEnElAlbumLaCancion(cancion)})
 	}
-	
+
+	method interpretaBien(cancion){
+		return self.interpretaBasico(cancion) and tipoDeInterprete.interpretaBien(cancion)
+	}
+
+	method cobra(presentacion) {
+		return tipoDeCobrador.cobra(presentacion, self)
+	}
+
 	method noTieneCanciones(){
 		return albumes.isEmpty()
 	}
 }
 
+class Palabrero inherits Interprete {
+
+	var palabra
+
+	constructor(unaPalabra) {
+		palabra = unaPalabra
+	}
+
+	override method interpretaBien(cancion) {
+		return cancion.dice(palabra)
+	}
+}
+
+class Larguero inherits Interprete {
+
+	var segundos
+
+	constructor(unosSegundos) {
+		segundos = unosSegundos
+	}
+
+	override method interpretaBien(cancion) {
+		return cancion.duracion() > segundos
+	}
+}
+
+object imparero inherits Interprete {
+	override method interpretaBien(cancion) {
+		return cancion.duracion().odd()
+	}
+}
+
+class Interprete {
+	method interpretaBien(cancion)
+}
+
+class CobraPorCompanieros inherits Cobrador {
+
+	var precioBase
+
+	constructor(unPrecioBase) {
+		precioBase = unPrecioBase
+	}
+
+	override method cobra(presentacion, cantante) {
+		if(cantante.actuaSolo(presentacion)) {
+			return precioBase
+		} else {
+			return precioBase / 2
+		}
+	}
+}
+
+class CobraPorCapacidad inherits Cobrador {
+	var precioBase
+	var capacidad
+
+	constructor(unPrecioBase, unaCapacidad) {
+		precioBase = unPrecioBase
+		capacidad = unaCapacidad
+	}
+
+	override method cobra(presentacion, cantante) {
+		if(presentacion.capacidad() > capacidad) {
+			return precioBase
+		} else {
+			return precioBase - 100
+		}
+	}
+}
+
+class CobraPorInflacion inherits Cobrador {
+	var precioBase
+	var fecha
+	var porcentajeAdicional
+
+	constructor(unPrecioBase, unaFecha, unPorcentajeAdicional) {
+		precioBase = unPrecioBase
+		fecha = unaFecha
+		porcentajeAdicional = unPorcentajeAdicional
+	}
+
+	override method cobra(presentacion, cantante) {
+		if(!presentacion.sePasaDe(fecha)) {
+			return precioBase
+		} else {
+			return precioBase + precioBase * porcentajeAdicional
+		}
+	}
+}
+
+class Cobrador {
+	method cobra(presentacion, cantante)
+}
+
+
 class MusicoDeGrupo inherits Musico {
-		
+
 	var aumento
-	
+
 	constructor(unGrupo, unaHabilidad, unosAlbumes, unAumento) =
 		super(unGrupo, unaHabilidad, unosAlbumes) {
         aumento = unAumento
     }
-    
-	override method interpretaBien(cancion){
-		return cancion.duracion() > 300 and super(cancion)
-	}
-	
+
 	method habilidad() {
 		if(self.estaEnGrupo()) {
 	    	return habilidad + aumento
@@ -72,30 +174,18 @@ class MusicoDeGrupo inherits Musico {
 	    	return habilidad
 	  	}
   	}
-  	
-  method cobra(presentacion) {
-	  if(self.actuaSolo(presentacion)) {
-	    return 100
-	  } else {
-	    return 50
-		}
-	}
-	
+
 }
 
 class VocalistaPopular inherits Musico {
-		
+
 	var palabra
-	
+
 	constructor(unGrupo, unaHabilidad, unosAlbumes, unaPalabra) =
 		super(unGrupo, unaHabilidad, unosAlbumes) {
-     	palabra = unaPalabra   
-    }
-	
-	override method interpretaBien(cancion) {
-		return cancion.dice(palabra) and super(cancion)
-	}
-	
+			palabra = unaPalabra
+		}
+
 	method habilidad() {
 	    if(self.estaEnGrupo()) {
 	    	return habilidad - 20
@@ -103,13 +193,4 @@ class VocalistaPopular inherits Musico {
 	    	return habilidad
 	  	}
 	}
-	
-	method cobra(presentacion) {
-		if(presentacion.esConcurrida()) {
-			return 500	
-		} else {
-			return 400
-		}
-	}
-
 }
