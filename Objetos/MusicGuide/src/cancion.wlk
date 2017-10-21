@@ -36,11 +36,11 @@ class Cancion {
 }
 
 class Remix inherits Cancion {
-	constructor(cancionOriginal) = 
-		super (
-			cancionOriginal.titulo(),
-			cancionOriginal.duracion() * 3,
-			"mueve tu cuelpo baby " + cancionOriginal.letra() + " yeah oh yeah"
+	constructor(cancion) =
+		super(
+			cancion.titulo(),
+			cancion.duracion() * 3,
+			"mueve tu cuelpo baby" + cancion.letra() + " yeah oh yeah"
 		)
 }
 
