@@ -10,19 +10,15 @@ class Banda {
 		representante = unRepresentante
 	}
 	
-	method cuantoCobran(unaPresentacion){   //no entendi el tema cobrador en la class musico(arreglado)
-		return integrantes.sum({integrante=>integrante.cobra(unaPresentacion)}) + representante.cobra()
+	method cuantoCobran(unaPresentacion){
+		return integrantes.sum({integrante => integrante.cobra(unaPresentacion)}) + representante.cobra()
 	}
 	method estanEnGrupo(){
 		return integrantes.all({integrante => integrante.estaEnGrupo()})
 	}
 		
 	method habilidad(){
-		if(integrantes.estanEnGrupo()){
 		return integrantes.sum({integrante=>integrante.habilidad()}) * 1.1
-		}else{
-			return "error" //Nico agrego el if, y debe haber return en else, deberia tirar un error
-		}
 	}
 	
 	method discosEditados(){
@@ -32,7 +28,7 @@ class Banda {
 	method puedenTocar(unaCancion){
 		return integrantes.all({integrante => integrante.interpretaBien(unaCancion)})
 	}
-	
+
 	method integrantes() = integrantes
 	
 	method representante() = representante
