@@ -25,17 +25,4 @@ test "tests4" {
 	const soledad = new VocalistaPopular("", 55, #{laSole} , new Palabrero("amor"), new CobraPorCompanieros(6000))
 	const kike = new MusicoDeGrupo("", 60, #{}, imparero, new CobraPorInflacion(4000, new Date(8, 1, 2018), 0.5), 20)		
 	const luisMiguel = new VocalistaPopular("", 80, #{paraLosArboles}, new Palabrero("lluvia"), new CobraPorCapacidad(500, 5000))
-
-// 	const luisMiguel = new VocalistaPopular("", 80, #{paraLosArboles}, "lluvia")
-//	const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
-//	const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
-
-	var lucia = new Palabrero("familia") // se me ocurrió así para que sea Palabrero y cobre por capacidad
-	lucia = new CobraPorCapacidad(500,5000)
-	
-	var soledad = new Palabrero("amor")// se me ocurrió así para que sea Palabrero y cobre por companieros
-	soledad = new CobraPorCompanieros(6000)
-	
-	var kike // = new Imparero() (si fuese CLASE imparero)
-	kike = new CobraPorInflacion(4000, new Date(8,1,18), 1.50)	
 }
