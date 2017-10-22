@@ -59,4 +59,5 @@ class Presentacion {
 	method artistas(unosArtistas) {
 		artistas = unosArtistas
 	}	
+
 }
