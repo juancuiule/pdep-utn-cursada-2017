@@ -9,3 +9,8 @@ class Banda {
 		integrantes = unosMusicos
 		representante = unRepresentante
 	}
+	
+	method cuantoCobran(){
+		return integrantes.sum({integrante=>integrante.cobra()}) + representante.cobra()
+	}
+}
