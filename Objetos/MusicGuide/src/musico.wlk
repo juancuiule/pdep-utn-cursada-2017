@@ -57,6 +57,9 @@ class Musico {
 		return tipoDeCobrador.cobra(presentacion, self)
 	}
 
+	method cualesTocaBien(unasCanciones){
+		return unasCanciones.filter({cancion=> self.interpretaBien(cancion)})
+	}
 	method noTieneCanciones(){
 		return albumes.isEmpty()
 	}
