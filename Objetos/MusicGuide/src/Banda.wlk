@@ -18,8 +18,10 @@ class Banda {
 	method habilidad(){//no se si hay que agregar algo el enunciado dice "considerar van a tocar en grupo"
 		return integrantes.sum({integrante=>integrante.habilidad()}) * 1.1
 	}
-	
-		
+	method discosEditados(){
+		return integrantes.all({musico => musico.discosHechos()})
+	}
+			
 
 }
 
