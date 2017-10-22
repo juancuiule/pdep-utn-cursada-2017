@@ -15,6 +15,11 @@ test "tests4" {
 	joaquin = new CobraPorCompanieros(100)
 
 	var lucia = new Palabrero("familia") // se me ocurrió así para que sea Palabrero y cobre por capacidad
-	lucia = new CobraPorCapacidad(500,5000)	
-
+	lucia = new CobraPorCapacidad(500,5000)
+	
+	var soledad = new Palabrero("amor")// se me ocurrió así para que sea Palabrero y cobre por companieros
+	soledad = new CobraPorCompanieros(6000)
+	
+	var kike = new Imparero() //si fuese CLASE imparero
+	kike = new CobraPorInflacion(4000, new Date(8,1,18), 1.50)	
 }
