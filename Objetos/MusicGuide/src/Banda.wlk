@@ -20,6 +20,8 @@ class Banda {
 	method habilidad(){
 		if(integrantes.estanEnGrupo()){
 		return integrantes.sum({integrante=>integrante.habilidad()}) * 1.1
+		}else{
+			return "error" //Nico agrego el if, y debe haber return en else, deberia tirar un error
 		}
 	}
 	
