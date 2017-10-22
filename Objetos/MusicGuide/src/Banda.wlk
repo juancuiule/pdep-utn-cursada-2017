@@ -32,6 +32,8 @@ class Banda {
 	method puedenTocar(unaCancion){
 		return integrantes.all({integrante => integrante.interpretaBien(unaCancion)})
 	}
+	
+	method integrantes() = integrantes
 
 }
 

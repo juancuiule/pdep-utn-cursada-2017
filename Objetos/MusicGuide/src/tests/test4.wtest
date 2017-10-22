@@ -40,13 +40,16 @@ describe "tests4" {
 	const elEternoRetorno = new Banda(#{kike, luisAlberto}, felix)
 	
 	fixture{
-		presentacionEnPrixDAmi.artistas(#{joaquin,soledad,elEternoRetorno}) 
-		presentacionEnLaCueva.artistas(#{pimpisole})
+		presentacionEnPrixDAmi.artistas(#{joaquin,soledad,elEternoRetorno.integrantes()}) 
+		presentacionEnLaCueva.artistas(#{pimpisole.integrantes()})
 	}
 
-	//Solo es para que no tire error 
-	test "Pdpalooza acepta a Joaquin" {
-		pdpalooza.agregarArtista(joaquin)
-		assert.that(pdpalooza.artistas().contains(joaquin))
+	
+	test "En la presentacion de PrixDAmi esta joaquin" {
+		assert.that(presentacionEnPrixDAmi.artistas().contains(joaquin))
+	}
+	
+	test "En la presentacion de La Cueva esta joaquin" {
+		assert.that(presentacionEnLaCueva.artistas().contains(joaquin))
 	}
 }
