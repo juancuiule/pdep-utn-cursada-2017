@@ -24,8 +24,11 @@ class Banda {
 	}
 	
 	method discosEditados(){
-		return integrantes.map({musico => musico.discosHechos()})
-	}		
+		return integrantes.map({integrante => integrante.discosHechos()})
+	}
+	
+	method puedenTocar(unaCancion){
+		return integrantes.all({integrante => integrante.interpretaBien(unaCancion)})
 
 }
 
