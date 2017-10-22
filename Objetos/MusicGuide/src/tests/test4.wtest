@@ -7,6 +7,7 @@ import Album.*
 import cancion.*
 import pdpalooza.*
 import Condicion.*
+import Banda.*
 
 describe "tests4" {
 	
@@ -26,14 +27,16 @@ describe "tests4" {
 	const kike = new MusicoDeGrupo("", 60, #{}, imparero, new CobraPorInflacion(4000, new Date(8, 1, 2018), 0.5), 20)		
 	const luisMiguel = new VocalistaPopular("", 80, #{paraLosArboles}, new Palabrero("lluvia"), new CobraPorCapacidad(500, 5000))
 	
-	//constructor(unosMusicos,unRepresentante)
-	const pimpisole = new Banda(#{soledad,joaquin,lucia}, cachorro)
-	const elEternoRetorno = new Banda(#{kike, luisAlberto}, felix)
-	
 	//constructor(precioQueCobra)
 	const cachorro = new Representante(1982)
 	const felix = new Representante(500)
 	
+	//constructor(unosMusicos,unRepresentante)
+	const pimpisole = new Banda(#{soledad,joaquin,lucia}, cachorro)
+	const elEternoRetorno = new Banda(#{kike, luisAlberto}, felix)
+	
+
+
 	//Solo es para que no tire error 
 	test "Pdpalooza acepta a Joaquin" {
 		pdpalooza.agregarArtista(joaquin)
