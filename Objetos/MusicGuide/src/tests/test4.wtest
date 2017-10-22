@@ -14,5 +14,7 @@ test "tests4" {
 	var joaquin = new Larguero(300)// se me ocurrió así para que sea Palabrero y cobre por companieros
 	joaquin = new CobraPorCompanieros(100)
 
+	var lucia = new Palabrero("familia") // se me ocurrió así para que sea Palabrero y cobre por capacidad
+	lucia = new CobraPorCapacidad(500,5000)	
 
 }
