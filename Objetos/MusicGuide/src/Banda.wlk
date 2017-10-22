@@ -10,8 +10,8 @@ class Banda {
 		representante = unRepresentante
 	}
 	
-	method cuantoCobran(){   //no entendi el tema cobrador en la class musico
-		return integrantes.sum({integrante=>integrante.cobra()}) + representante.cobra()
+	method cuantoCobran(unaPresentacion){   //no entendi el tema cobrador en la class musico(arreglado)
+		return integrantes.sum({integrante=>integrante.cobra(unaPresentacion)}) + representante.cobra()
 	}
 	method estanEnGrupo(){
 		return integrantes.all({integrante => integrante.estaEnGrupo()})
@@ -34,6 +34,8 @@ class Banda {
 	}
 	
 	method integrantes() = integrantes
+	
+	method representante() = representante
 
 }
 
