@@ -15,12 +15,12 @@ class Banda {
 	}
 	method estanEnGrupo(){
 		return integrantes.all({integrante => integrante.estaEnGrupo()})
-	
+	}
 		
 	method habilidad(){
 		if(integrantes.estanEnGrupo()){
 		return integrantes.sum({integrante=>integrante.habilidad()}) * 1.1
-	}
+		}
 	}
 	
 	method discosEditados(){
@@ -29,6 +29,7 @@ class Banda {
 	
 	method puedenTocar(unaCancion){
 		return integrantes.all({integrante => integrante.interpretaBien(unaCancion)})
+	}
 
 }
 
@@ -42,6 +43,6 @@ class Representante{
 	method cobra(){
 		return precio
 	}
-	
 
 }
+
