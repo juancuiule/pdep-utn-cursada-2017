@@ -38,6 +38,7 @@ describe "tests4" {
 	//constructor(unosMusicos,unRepresentante)
 	const pimpisole = new Banda(#{soledad,joaquin,lucia}, cachorro)
 	const elEternoRetorno = new Banda(#{kike, luisAlberto}, felix)
+	const losPimpinela = new Banda(#{joaquin,lucia}, cachorro)
 	
 	fixture{
 		presentacionEnPrixDAmi.artistas(#{joaquin,soledad}) 
@@ -61,11 +62,14 @@ describe "tests4" {
 		assert.equals(pimpisole.cuantoCobran(presentacionEnLaCueva),5532)
 	}
 	//BANDA pimpisole(soledad,joaquin,lucia:cachorro) - elEternoRetorno(kike,luisAlberto:felix)
-	test "En Pimpisole al menos un integrante no está en grupo"{
+	test "En -Pimpisole- al menos un integrante no está en grupo"{
 		assert.notThat(pimpisole.estanEnGrupo())
-	}
-	test "En El eterno retorno todos los integrantes no tienen grupo"{
+	} 
+	test "En -El Eterno Retorno- todos los integrantes no tienen grupo"{
 		assert.notThat(elEternoRetorno.estanEnGrupo())
+	}
+	test "En -Los Pimpinela- los integrantes estan en grupo"{
+		assert.that(losPimpinela.estanEnGrupo())
 	}
 
 	
