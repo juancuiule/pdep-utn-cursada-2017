@@ -18,12 +18,13 @@ class Banda {
 	
 		
 	method habilidad(){
+		if(integrantes.estanEnGrupo()){
 		return integrantes.sum({integrante=>integrante.habilidad()}) * 1.1
 	}
-	method discosEditados(){
-		if(integrantes.estanEnGrupo()){
-		return integrantes.map({musico => musico.discosHechos()})
 	}
+	
+	method discosEditados(){
+		return integrantes.map({musico => musico.discosHechos()})
 	}		
 
 }
