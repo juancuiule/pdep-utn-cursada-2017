@@ -8,7 +8,7 @@ import cancion.*
 import pdpalooza.*
 import Condicion.*
 
-test "tests4" {
+describe "tests4" {
 	
 	
 	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
@@ -25,4 +25,11 @@ test "tests4" {
 	const soledad = new VocalistaPopular("", 55, #{laSole} , new Palabrero("amor"), new CobraPorCompanieros(6000))
 	const kike = new MusicoDeGrupo("", 60, #{}, imparero, new CobraPorInflacion(4000, new Date(8, 1, 2018), 0.5), 20)		
 	const luisMiguel = new VocalistaPopular("", 80, #{paraLosArboles}, new Palabrero("lluvia"), new CobraPorCapacidad(500, 5000))
+	
+	
+	//Solo es para que no tire error 
+	test "Pdpalooza acepta a Joaquin" {
+		pdpalooza.agregarArtista(joaquin)
+		assert.that(pdpalooza.artistas().contains(joaquin))
+	}
 }
