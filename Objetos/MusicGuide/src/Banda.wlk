@@ -13,15 +13,18 @@ class Banda {
 	method cuantoCobran(){   //no entendi el tema cobrador en la class musico
 		return integrantes.sum({integrante=>integrante.cobra()}) + representante.cobra()
 	}
+	method estanEnGrupo(){
+		return integrantes.all({integrante => integrante.estaEnGrupo()})
 	
 		
-	method habilidad(){//no se si hay que agregar algo el enunciado dice "considerar van a tocar en grupo"
+	method habilidad(){
 		return integrantes.sum({integrante=>integrante.habilidad()}) * 1.1
 	}
 	method discosEditados(){
-		return integrantes.all({musico => musico.discosHechos()})
+		if(integrantes.estanEnGrupo()){
+		return integrantes.map({musico => musico.discosHechos()})
 	}
-			
+	}		
 
 }
 
