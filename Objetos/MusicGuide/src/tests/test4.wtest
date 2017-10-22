@@ -71,7 +71,9 @@ describe "tests4" {
 	test "En -Los Pimpinela- los integrantes estan en grupo"{
 		assert.that(losPimpinela.estanEnGrupo())
 	}
-
+	test "La habilidad de la Banda Los Pimpinela es "{ //falla, dice que no entiende el mensaje estanEnGrupo() del if
+		assert.equals(losPimpinela.habilidad(), 150)
+	}
 	
 	
 }
