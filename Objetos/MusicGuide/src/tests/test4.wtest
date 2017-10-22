@@ -1,0 +1,18 @@
+import Presentacion.*
+import musico.*
+import luisAlberto.*
+import lunaPark.*
+import cancion.*
+import Album.*
+import cancion.*
+import pdpalooza.*
+import Condicion.*
+
+test "tests4" {
+	
+	
+	var joaquin = new Larguero(300)// se me ocurrió así para que sea Palabrero y cobre por companieros
+	joaquin = new CobraPorCompanieros(100)
+
+
+}
