@@ -63,6 +63,9 @@ class Musico {
 	method noTieneCanciones(){
 		return albumes.isEmpty()
 	}
+	method discosHechos(){
+	return albumes
+	}
 }
 
 class Palabrero inherits Interprete {
