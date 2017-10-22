@@ -1,6 +1,6 @@
 import musico.*
 
-object luisAlberto inherits Musico("",8,#{}) {
+object luisAlberto inherits Musico("", 8, #{}, null, new CobraPorInflacion(1000, new Date(1, 9, 2017), 0.2)) {
 	var guitarra
 
 	method tocaConGuitarra(unaGuitarra) {
@@ -12,22 +12,12 @@ object luisAlberto inherits Musico("",8,#{}) {
 	}
 
 	method habilidad() {
-		return 100.min(8*guitarra.valor())
+		return 100.min(8 * guitarra.valor())
   	}
 
 	override method interpretaBien(cancion) {
 		return true
 	}
-	
-	
- 	method cobra(presentacion) {
-		if (presentacion.sePasaDeSeptiembre()) {
-			return 1200
-		} else {
-			return 1000
-		}
-	}
-
 }
 
 object fender {

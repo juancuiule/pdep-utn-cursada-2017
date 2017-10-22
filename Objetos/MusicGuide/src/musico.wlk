@@ -6,10 +6,12 @@ class Musico {
 	var tipoDeInterprete
 	var tipoDeCobrador
 
-	constructor(unGrupo, unaHabilidad, unosAlbumes){
+	constructor(unGrupo, unaHabilidad, unosAlbumes, unTipoDeInterprete, unTipoDeCobrador) {
 		grupo = unGrupo
 		habilidad = unaHabilidad
 		albumes = unosAlbumes
+		tipoDeInterprete = unTipoDeInterprete
+		tipoDeCobrador = unTipoDeCobrador 
 	}
 
 	method estaEnGrupo() {
@@ -17,8 +19,7 @@ class Musico {
 	}
 	
 	method actuaSolo(presentacion) {
-		return presentacion.actuaUnoSolo() &&
-			presentacion.actua(self)
+		return presentacion.actuaUnoSolo() && presentacion.actua(self)
 	}
 	
 	method esMinimalista() {
@@ -64,7 +65,13 @@ class Musico {
 		return albumes.isEmpty()
 	}
 	method discosHechos(){
-	return albumes
+		return albumes
+	}
+	method tipoDeInterprete(unTipoDeInterprete) {
+		tipoDeInterprete = unTipoDeInterprete
+	}
+	method tipoDeCobrador(unTipoDeCobrador) {
+		tipoDeCobrador = unTipoDeCobrador
 	}
 }
 
@@ -163,15 +170,14 @@ class Cobrador {
 	method cobra(presentacion, cantante)
 }
 
-
 class MusicoDeGrupo inherits Musico {
 
 	var aumento
 
-	constructor(unGrupo, unaHabilidad, unosAlbumes, unAumento) =
-		super(unGrupo, unaHabilidad, unosAlbumes) {
-        aumento = unAumento
-    }
+	constructor(unGrupo, unaHabilidad, unosAlbumes, unTipoDeInterprete, unTipoDeCobrador, unAumento) =
+		super(unGrupo, unaHabilidad, unosAlbumes, unTipoDeInterprete, unTipoDeCobrador) {
+			aumento = unAumento
+		}
 
 	method habilidad() {
 		if(self.estaEnGrupo()) {
@@ -184,13 +190,8 @@ class MusicoDeGrupo inherits Musico {
 }
 
 class VocalistaPopular inherits Musico {
-
-	var palabra
-
-	constructor(unGrupo, unaHabilidad, unosAlbumes, unaPalabra) =
-		super(unGrupo, unaHabilidad, unosAlbumes) {
-			palabra = unaPalabra
-		}
+	constructor(unGrupo, unaHabilidad, unosAlbumes, unTipoDeInterprete, unTipoDeCobrador) =
+		super(unGrupo, unaHabilidad, unosAlbumes, unTipoDeInterprete, unTipoDeCobrador)
 
 	method habilidad() {
 	    if(self.estaEnGrupo()) {
