@@ -13,4 +13,9 @@ class Banda {
 	method cuantoCobran(){   //no entendi el tema cobrador en la class musico
 		return integrantes.sum({integrante=>integrante.cobra()}) + representante.cobra()
 	}
+	
+		
+	method habilidad(){//no se si hay que agregar algo el enunciado dice "considerar van a tocar en grupo"
+		return integrantes.sum({integrante=>integrante.habilidad()}) * 1.1
+	}
 }
