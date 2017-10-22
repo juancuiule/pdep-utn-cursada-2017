@@ -64,6 +64,9 @@ describe "tests4" {
 	test "En Pimpisole al menos un integrante no está en grupo"{
 		assert.notThat(pimpisole.estanEnGrupo())
 	}
+	test "En El eterno retorno todos los integrantes no tienen grupo"{
+		assert.notThat(elEternoRetorno.estanEnGrupo())
+	}
 
 	
 	
