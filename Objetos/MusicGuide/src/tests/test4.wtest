@@ -60,5 +60,11 @@ describe "tests4" {
 	test "Pimpisole cobra 5532"{
 		assert.equals(pimpisole.cuantoCobran(presentacionEnLaCueva),5532)
 	}
+	//BANDA pimpisole(soledad,joaquin,lucia:cachorro) - elEternoRetorno(kike,luisAlberto:felix)
+	test "En Pimpisole al menos un integrante no está en grupo"{
+		assert.notThat(pimpisole.estanEnGrupo())
+	}
+
+	
 	
 }
