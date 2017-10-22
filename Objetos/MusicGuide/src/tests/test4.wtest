@@ -8,9 +8,13 @@ import cancion.*
 import pdpalooza.*
 import Condicion.*
 import Banda.*
+import prixDAmi.*
+import laCueva.*
 
 describe "tests4" {
 	
+	const presentacionEnPrixDAmi = new Presentacion(prixDAmi, new Date(30, 06, 2017))
+	const presentacionEnLaCueva = new Presentacion(laCueva, new Date (05, 01, 2018))
 	
 	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
 	const cisne = new Cancion("cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
@@ -35,7 +39,10 @@ describe "tests4" {
 	const pimpisole = new Banda(#{soledad,joaquin,lucia}, cachorro)
 	const elEternoRetorno = new Banda(#{kike, luisAlberto}, felix)
 	
-
+	fixture{
+		presentacionEnPrixDAmi.artistas(#{joaquin,soledad,elEternoRetorno}) 
+		presentacionEnLaCueva.artistas(#{pimpisole})
+	}
 
 	//Solo es para que no tire error 
 	test "Pdpalooza acepta a Joaquin" {
