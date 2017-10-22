@@ -21,7 +21,7 @@ describe "Tercer Entrega"{
  	const luisMiguel = new VocalistaPopular("", 80, #{paraLosArboles}, new Palabrero("lluvia"), new CobraPorCapacidad(500, 5000))
 	const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
 	const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
-	const soledad = new VocalistaPopular("", 55, #{laSole} , new Palabrero("amor"), new CobraPorCompanieros(6000))
+	const soledad = new VocalistaPopular("", 55, #{laSole} , new Palabrero("vida"), new CobraPorCompanieros(6000))
 
 	test "Pdpalooza acepta a Joaquin" {
 		pdpalooza.agregarArtista(joaquin)

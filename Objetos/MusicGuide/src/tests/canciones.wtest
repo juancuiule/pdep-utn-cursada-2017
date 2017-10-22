@@ -1,13 +1,16 @@
 import luisAlberto.*
 import cancion.*
 import musico.*
+import Album.*
 
 describe "Canciones" {
-	const joaquin = new MusicoDeGrupo("Pimpinela",20,#{},5)
-	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
-	
+	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
 	const cisne = new Cancion("Cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
 	const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	
+	const paraLosArboles = new Album(new Date(31,3,03),50000,49000,#{cisne,almaDeDiamante})
+	const joaquin = new MusicoDeGrupo("Pimpinela", 20, #{paraLosArboles}, new Larguero(300), new CobraPorCompanieros(100), 5)
+	const lucia = new VocalistaPopular("Pimpinela", 70, #{}, new Palabrero("familia"), new CobraPorCapacidad(500, 5000))
 	
 	test "Joaquin no tiene que interpretar bien la canción 'La Familia'" {
 		assert.notThat(joaquin.interpretaBien(laFamilia))

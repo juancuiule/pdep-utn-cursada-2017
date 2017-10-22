@@ -25,7 +25,7 @@ describe "tests4" {
 	const laSole = new Album(new Date(4,2,05),200000,130000,#{eres,corazonAmericano})
 	
 	// constructor(unGrupo, unaHabilidad, unosAlbumes, unTipoDeInterprete, unTipoDeCobrador)
-	const joaquin = new MusicoDeGrupo("Pimpinela", 80, #{paraLosArboles}, new Larguero(300), new CobraPorCompanieros(100), 5)
+	const joaquin = new MusicoDeGrupo("Pimpinela", 20, #{paraLosArboles}, new Larguero(300), new CobraPorCompanieros(100), 5)
 	const lucia = new VocalistaPopular("Pimpinela", 70, #{}, new Palabrero("familia"), new CobraPorCapacidad(500, 5000))
 	const soledad = new VocalistaPopular("", 55, #{laSole} , new Palabrero("amor"), new CobraPorCompanieros(6000))
 	const kike = new MusicoDeGrupo("", 60, #{}, imparero, new CobraPorInflacion(4000, new Date(8, 1, 2018), 0.5), 20)		

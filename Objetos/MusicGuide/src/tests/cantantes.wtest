@@ -1,25 +1,31 @@
 import luisAlberto.*
 import musico.*
+import cancion.*
+import Album.*
 
 describe "Cantantes" {
 	
-	const joaquin = new MusicoDeGrupo("Pimpinela",20,#{},5)
-	const lucia = new VocalistaPopular("Pimpinela",70,#{},"familia")
+	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
+	const cisne = new Cancion("cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+	const paraLosArboles = new Album(new Date(31,3,03),50000,49000,#{cisne,almaDeDiamante})
+
+	const joaquin = new MusicoDeGrupo("Pimpinela", 20, #{paraLosArboles}, new Larguero(300), new CobraPorCompanieros(100), 5)
+	const lucia = new VocalistaPopular("Pimpinela", 70, #{}, new Palabrero("familia"), new CobraPorCapacidad(500, 5000))
 	
-	test "Joaqu�n canta en el grupo Pimpinela, su habilidad es 25" {
+	test "Joaquín canta en el grupo Pimpinela, su habilidad es 25" {
 		assert.equals(joaquin.habilidad(), 25)
 	}
 	
-	test "Joaqu�n canta en el grupo Pimpinela, y decide lanzar su carrera solista (deja el grupo), su habilidad es 20" {
+	test "Joaquín canta en el grupo Pimpinela, y decide lanzar su carrera solista (deja el grupo), su habilidad es 20" {
 		joaquin.dejarGrupo()
 		assert.equals(joaquin.habilidad(), 20)
 	}
 	
-	test "Luc�a canta en el grupo Pimpinela, su habilidad es 50" {
+	test "Lucía canta en el grupo Pimpinela, su habilidad es 50" {
 		assert.equals(lucia.habilidad(), 50)
 	}
 	
-	test "Luc�a canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo), su habilidad es 70" {
+	test "Lucía canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo), su habilidad es 70" {
 		lucia.dejarGrupo()
 		assert.equals(lucia.habilidad(), 70)
 	}
@@ -34,7 +40,7 @@ describe "Cantantes" {
 		assert.equals(luisAlberto.habilidad(), 100)
 	}
 	
-	test "Luis Alberto toca ahora con la Gibson que no est� sana, su habilidad es 40" {
+	test "Luis Alberto toca ahora con la Gibson que no está sana, su habilidad es 40" {
 		luisAlberto.tocaConGuitarra(gibson)
 		luisAlberto.trataMalAGuitarra()
 		assert.equals(luisAlberto.habilidad(), 40)
