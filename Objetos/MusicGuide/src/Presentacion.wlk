@@ -65,7 +65,7 @@ class Presentacion {
 		artistas = unosArtistas
 	}
 	method magia(){
-		return artistas.sum{integrante => integrante.habilidad()} + bandas.sum{banda => banda.habilidad(self)}
+		return artistas.sum{integrante => integrante.habilidad()} + bandas.sum{banda => banda.habilidad()}
 	}
 
 }

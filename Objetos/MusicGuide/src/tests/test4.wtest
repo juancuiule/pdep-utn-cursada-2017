@@ -16,6 +16,8 @@ describe "tests4" {
 	const presentacionEnPrixDAmi = new Presentacion(prixDAmi, new Date(30, 06, 2017))
 	const presentacionEnLaCueva = new Presentacion(laCueva, new Date (05, 01, 2018))
 	
+	const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")	
+	
 	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
 	const cisne = new Cancion("cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
 	const paraLosArboles = new Album(new Date(31,3,03),50000,49000,#{cisne,almaDeDiamante})
@@ -71,7 +73,12 @@ describe "tests4" {
 	test "En -Los Pimpinela- los integrantes estan en grupo"{
 		assert.that(losPimpinela.estanEnGrupo())
 	}
-	
+	test "La habilidad de la Banda Los Pimpinela es "{ 
+		assert.equals(losPimpinela.habilidad(), 150)	
+	}
+	test "La habilidad de la banda: elEternoRetorno es de 154"{
+		assert.equals(elEternoRetorno.habilidad(),154)
+	}
 	test "Los discos editados por Pimpisole son paraLosArboles y laSole"{
 		assert.equals(pimpisole.discosEditados(),#{laSole, paraLosArboles})
 	}
@@ -81,6 +88,16 @@ describe "tests4" {
 	test "Pimpisole cobra 5532 en La cueva"{
 		assert.equals(pimpisole.cuantoCobran(presentacionEnLaCueva),5532)
 	}
-	
-	
+	test "La magia de la presentacion en La Cueva es de 145"{
+		assert.equals(presentacionEnLaCueva.magia(),143)
+	}
+	test "La magia de la presentacion Prix D'Ami es de 234"{
+		assert.equals(presentacionEnPrixDAmi.magia(),234)
+	}
+	test "Joaquin de las canciones: cisne, almaDeDiamante y eres toca bien: cisne y almaDeDiamante"{
+		assert.equals(joaquin.cualesTocaBien(#{cisne, almaDeDiamante, eres}), #{cisne, almaDeDiamante})
+	}
+	test "La banda elEternoRetorno puede interpretar bien la cancion 'Crisantemo'"{
+		assert.that(elEternoRetorno.puedenTocar(crisantemo))
+	}	
 }
