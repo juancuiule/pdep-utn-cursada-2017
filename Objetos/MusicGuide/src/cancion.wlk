@@ -36,21 +36,48 @@ class Cancion {
 }
 
 class Remix inherits Cancion {
-	constructor(cancion) =
-		super(
-			cancion.titulo(),
-			cancion.duracion() * 3,
-			"mueve tu cuelpo baby" + cancion.letra() + " yeah oh yeah"
-		)
+	constructor (unTitulo,unaDuracion,unaLetra) = 
+		super (unTitulo,unaDuracion,unaLetra)
+		
+	override method duracion() {
+		return duracion * 3
+	}
+	
+	override method letra() {
+		return "mueve tu cuelpo baby" + letra + " yeah oh yeah"
+	}
 }
 
 class Mashup inherits Cancion {
-	constructor(canciones) = 
-		super (
-			"Mashup",
-			canciones.max({cancion => cancion.duracion()}).duracion(),
-			canciones.fold(canciones.asList().head().letra(),
-				{unaLetra, otraCancion => unaLetra.trim() + " " + otraCancion.letra().trim()}
-			)
-		)
+	var canciones
+	constructor(listaDeCanciones) = super("Mashup", null, null) {
+		canciones = listaDeCanciones
+	}
+	
+	override method titulo() {
+		return "Mashup"
+	}
+	
+	method cancionMasLarga() {
+		return canciones.max({cancion => cancion.duracion()})
+	}
+	
+	override method duracion() {
+		return self.cancionMasLarga().duracion()
+	}
+	
+	method letraPrimerCancion() {
+		return canciones.asList().head().letra()
+	}
+	
+	method juntarLetras(unaLetra, otraLetra) {
+		return unaLetra.trim() + " " + otraLetra.trim()
+	}
+	
+	override method letra() {
+		return canciones.fold(
+			self.letraPrimerCancion(),
+			{unaLetra, unaCancion => self.juntarLetras(unaLetra, unaCancion.letra())}
+		) 
+	}
 }
