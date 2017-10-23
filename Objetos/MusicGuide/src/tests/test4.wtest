@@ -80,6 +80,11 @@ describe "tests4" {
 	test "Pimpisole cobra 5532 en La cueva"{
 		assert.equals(pimpisole.cuantoCobran(presentacionEnLaCueva),5532)
 	}
-	
-	
+	test "La magia de la presentacion en La Cueva es de 145"{
+		assert.equals(presentacionEnLaCueva.magia(),145)
+	}
+	test "Joaquin de las canciones: cisne, almaDeDiamante y eres toca bien: cisne y almaDeDiamante"{
+		assert.equals(joaquin.cualesTocaBien(#{cisne, almaDeDiamante, eres}), #{cisne, almaDeDiamante})
+	}	
+		
 }
