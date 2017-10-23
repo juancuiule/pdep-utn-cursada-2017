@@ -58,9 +58,6 @@ describe "tests4" {
 		assert.equals(elEternoRetorno.representante(), felix)
 	}
 	
-	test "Pimpisole cobra 5532"{
-		assert.equals(pimpisole.cuantoCobran(presentacionEnLaCueva),5532)
-	}
 	//BANDA pimpisole(soledad,joaquin,lucia:cachorro) - elEternoRetorno(kike,luisAlberto:felix)
 	test "En -Pimpisole- al menos un integrante no está en grupo"{
 		assert.notThat(pimpisole.estanEnGrupo())
@@ -73,6 +70,15 @@ describe "tests4" {
 	}
 	test "La habilidad de la Banda Los Pimpinela es "{ //falla, dice que no entiende el mensaje estanEnGrupo() del if
 		assert.equals(losPimpinela.habilidad(), 150)
+	}
+	test "Los discos editados por Pimpisole son paraLosArboles y laSole"{//no me lo toma, debe ser por el orden
+		assert.equals(pimpisole.discosEditados(),#{#{laSole},#{paraLosArboles},#{}})
+	}
+	test"Los pimpinela cobran 2532 en La Cueva joaquin(50)+lucia(500)+cachorro(1982)"{
+		assert.equals(losPimpinela.cuantoCobran(presentacionEnLaCueva),2532)
+	}
+	test "Pimpisole cobra 5532 en La cueva"{
+		assert.equals(pimpisole.cuantoCobran(presentacionEnLaCueva),5532)
 	}
 	
 	
