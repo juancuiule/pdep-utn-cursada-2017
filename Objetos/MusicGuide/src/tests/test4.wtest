@@ -18,6 +18,9 @@ describe "tests4" {
 	
 	const crisantemo = new Cancion("Crisantemo",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")	
 	
+	const laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	const especialLaFamilia = new Album(new Date(17,6,92),100000,89000,#{laFamilia})
+	
 	const almaDeDiamante = new Cancion("Alma de Diamante",216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
 	const cisne = new Cancion("cisne",312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
 	const paraLosArboles = new Album(new Date(31,3,03),50000,49000,#{cisne,almaDeDiamante})
@@ -60,44 +63,63 @@ describe "tests4" {
 	test "Felix es el represetante de El Eterno Retorno"{
 		assert.equals(elEternoRetorno.representante(), felix)
 	}
-	
-	//BANDA pimpisole(soledad,joaquin,lucia:cachorro) - elEternoRetorno(kike,luisAlberto:felix)
+
 	test "En -Pimpisole- al menos un integrante no está en grupo"{
 		assert.notThat(pimpisole.estanEnGrupo())
 	}
 	 
-	test "En -El Eterno Retorno- todos los integrantes no tienen grupo"{
+	test "En -El Eterno Retorno- no todos los integrantes no tienen grupo"{
 		assert.notThat(elEternoRetorno.estanEnGrupo())
 	}
 	
 	test "En -Los Pimpinela- los integrantes estan en grupo"{
 		assert.that(losPimpinela.estanEnGrupo())
 	}
-	test "La habilidad de la Banda Los Pimpinela es "{ 
-		assert.equals(losPimpinela.habilidad(), 150)	
-	}
+	
 	test "La habilidad de la banda: elEternoRetorno es de 154"{
 		assert.equals(elEternoRetorno.habilidad(),154)
 	}
+	
 	test "Los discos editados por Pimpisole son paraLosArboles y laSole"{
 		assert.equals(pimpisole.discosEditados(),#{laSole, paraLosArboles})
 	}
+	
 	test"Los pimpinela cobran 2532 en La Cueva joaquin(50)+lucia(500)+cachorro(1982)"{
 		assert.equals(losPimpinela.cuantoCobran(presentacionEnLaCueva),2532)
 	}
+	
 	test "Pimpisole cobra 5532 en La cueva"{
 		assert.equals(pimpisole.cuantoCobran(presentacionEnLaCueva),5532)
 	}
-	test "La magia de la presentacion en La Cueva es de 145"{
-		assert.equals(presentacionEnLaCueva.magia(),143)
+	
+	test "La magia de la presentacion en La Cueva es de 143"{
+		assert.equals(presentacionEnLaCueva.magia(), 143)
 	}
+	
 	test "La magia de la presentacion Prix D'Ami es de 234"{
-		assert.equals(presentacionEnPrixDAmi.magia(),234)
+		assert.equals(presentacionEnPrixDAmi.magia(), 234)
 	}
-	test "Joaquin de las canciones: cisne, almaDeDiamante y eres toca bien: cisne y almaDeDiamante"{
-		assert.equals(joaquin.cualesTocaBien(#{cisne, almaDeDiamante, eres}), #{cisne, almaDeDiamante})
+	
+	test "Joaquin de las canciones: cisne, almaDeDiamante y eres toca bien: cisne"{
+		assert.equals(joaquin.cualesTocaBien(#{cisne, almaDeDiamante, eres}), #{cisne})
 	}
-	test "La banda elEternoRetorno puede interpretar bien la cancion 'Crisantemo'"{
-		assert.that(elEternoRetorno.puedenTocar(crisantemo))
-	}	
+	
+	test "Joaquin pasa a ser imparero y no canta bien 'Cisne' (dura 312 segundos)" {
+		joaquin.tipoDeInterprete(imparero)
+		assert.notThat(joaquin.interpretaBien(cisne))
+	}
+	
+	test "Joaquin pasa a ser palabrero de la palabra “gente”.De esta lista de canciones: “Corazón americano”, “Eres”, “La familia”, “Cisne”, “Alma de diamante” y “Crisantemo” solo toca bien “La Familia”." {
+		joaquin.compone(especialLaFamilia)
+		joaquin.tipoDeInterprete(new Palabrero("gente"))
+		assert.equals(
+			joaquin.cualesTocaBien(#{corazonAmericano, eres, laFamilia, cisne, almaDeDiamante, crisantemo}),
+			#{laFamilia}
+		)
+	}
+
+	test "El show Prix D'Ami cuesta 8550" {
+		assert.equals(8550, presentacionEnPrixDAmi.costo())
+	}
+
 }
