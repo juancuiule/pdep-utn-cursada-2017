@@ -86,6 +86,9 @@ describe "tests4" {
 	test "La magia de la presentacion en La Cueva es de 145"{
 		assert.equals(presentacionEnLaCueva.magia(),145)
 	}
+	test "La magia de la presentacion Prix D'Ami es de 154"{
+		assert.equals(presentacionEnPrixDAmi.magia(),154)
+	}
 	test "Joaquin de las canciones: cisne, almaDeDiamante y eres toca bien: cisne y almaDeDiamante"{
 		assert.equals(joaquin.cualesTocaBien(#{cisne, almaDeDiamante, eres}), #{cisne, almaDeDiamante})
 	}
