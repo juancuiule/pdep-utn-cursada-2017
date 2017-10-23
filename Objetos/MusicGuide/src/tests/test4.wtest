@@ -69,8 +69,11 @@ describe "tests4" {
 		assert.that(losPimpinela.estanEnGrupo())
 	}
 	test "La habilidad de la Banda Los Pimpinela es "{ //falla, dice que no entiende el mensaje estanEnGrupo() del if
-		assert.equals(losPimpinela.habilidad(), 150)
+		assert.equals(losPimpinela.habilidad(), 150)	
 	}
+	test "La habilidad de la banda: elEternoRetorno es de 154"{
+		assert.equals(elEternoRetorno.habilidad(),154)
+	}	
 	test "Los discos editados por Pimpisole son paraLosArboles y laSole"{
 		assert.equals(pimpisole.discosEditados(),#{laSole, paraLosArboles})
 	}
@@ -85,6 +88,6 @@ describe "tests4" {
 	}
 	test "Joaquin de las canciones: cisne, almaDeDiamante y eres toca bien: cisne y almaDeDiamante"{
 		assert.equals(joaquin.cualesTocaBien(#{cisne, almaDeDiamante, eres}), #{cisne, almaDeDiamante})
-	}	
+	}
 		
 }
