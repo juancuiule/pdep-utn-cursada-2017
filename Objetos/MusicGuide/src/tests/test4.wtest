@@ -92,5 +92,7 @@ describe "tests4" {
 	test "Joaquin de las canciones: cisne, almaDeDiamante y eres toca bien: cisne y almaDeDiamante"{
 		assert.equals(joaquin.cualesTocaBien(#{cisne, almaDeDiamante, eres}), #{cisne, almaDeDiamante})
 	}
-		
+	test "La banda elEternoRetorno puede interpretar bien la cancion 'Crisantemo'"{
+		assert.that(elEternoRetorno.puedenTocar(crisantemo))
+	}	
 }
