@@ -22,7 +22,7 @@ class Banda {
 	}
 	
 	method discosEditados(){
-		return integrantes.map({integrante => integrante.discosHechos()})
+		return integrantes.flatMap({integrante => integrante.discosHechos()})
 	}
 	
 	method puedenTocar(unaCancion){

@@ -71,8 +71,8 @@ describe "tests4" {
 	test "La habilidad de la Banda Los Pimpinela es "{ //falla, dice que no entiende el mensaje estanEnGrupo() del if
 		assert.equals(losPimpinela.habilidad(), 150)
 	}
-	test "Los discos editados por Pimpisole son paraLosArboles y laSole"{//no me lo toma, debe ser por el orden
-		assert.equals(pimpisole.discosEditados(),#{#{laSole},#{paraLosArboles},#{}})
+	test "Los discos editados por Pimpisole son paraLosArboles y laSole"{
+		assert.equals(pimpisole.discosEditados(),#{laSole, paraLosArboles})
 	}
 	test"Los pimpinela cobran 2532 en La Cueva joaquin(50)+lucia(500)+cachorro(1982)"{
 		assert.equals(losPimpinela.cuantoCobran(presentacionEnLaCueva),2532)
