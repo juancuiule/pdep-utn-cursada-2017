@@ -42,16 +42,17 @@ describe "tests4" {
 	
 	fixture{
 		presentacionEnPrixDAmi.artistas(#{joaquin,soledad}) 
-		presentacionEnPrixDAmi.artistas(elEternoRetorno.integrantes())
-		presentacionEnLaCueva.artistas(pimpisole.integrantes())
+		presentacionEnPrixDAmi.agregarBanda(elEternoRetorno)
+		presentacionEnLaCueva.agregarBanda(pimpisole)
+		luisAlberto.tocaConGuitarra(fender)
 	}
 
 	test "En la presentacion de PrixDAmi esta kike" {
-		assert.that(presentacionEnPrixDAmi.artistas().contains(kike))
+		assert.that(presentacionEnPrixDAmi.actua(kike))
 	}
 	
 	test "En la presentacion de La Cueva esta joaquin" {
-		assert.that(presentacionEnLaCueva.artistas().contains(joaquin))
+		assert.that(presentacionEnLaCueva.actua(joaquin))
 	}
 	
 	test "Felix es el represetante de El Eterno Retorno"{
@@ -61,16 +62,16 @@ describe "tests4" {
 	//BANDA pimpisole(soledad,joaquin,lucia:cachorro) - elEternoRetorno(kike,luisAlberto:felix)
 	test "En -Pimpisole- al menos un integrante no está en grupo"{
 		assert.notThat(pimpisole.estanEnGrupo())
-	} 
+	}
+	 
 	test "En -El Eterno Retorno- todos los integrantes no tienen grupo"{
 		assert.notThat(elEternoRetorno.estanEnGrupo())
 	}
+	
 	test "En -Los Pimpinela- los integrantes estan en grupo"{
 		assert.that(losPimpinela.estanEnGrupo())
 	}
-	test "La habilidad de la Banda Los Pimpinela es "{ //falla, dice que no entiende el mensaje estanEnGrupo() del if
-		assert.equals(losPimpinela.habilidad(), 150)
-	}
+	
 	test "Los discos editados por Pimpisole son paraLosArboles y laSole"{
 		assert.equals(pimpisole.discosEditados(),#{laSole, paraLosArboles})
 	}

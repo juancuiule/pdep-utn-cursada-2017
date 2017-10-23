@@ -2,6 +2,7 @@ class Presentacion {
 	var lugar
 	var fecha
 	var artistas = #{}
+	var bandas = #{}
 
 	constructor (unLugar, unaFecha) {
 		lugar = unLugar
@@ -19,13 +20,17 @@ class Presentacion {
 	method fecha(unaFecha){
 		fecha = unaFecha
 	}
+	
+	method agregarBanda(unaBanda) {
+		bandas.add(unaBanda)
+	}
 
 	method lugar() {
 		return lugar
 	}
 
 	method artistas() {
-		return artistas
+		return artistas + bandas.flatMap({banda => banda.integrantes()})
 	}
 
 	method sePasaDe(unaFecha) {
@@ -45,22 +50,22 @@ class Presentacion {
 	}
 	
 	method actua(unArtista) {
-		return artistas.contains(unArtista)
+		return self.artistas().contains(unArtista)
 	}
 
 	method actuaUnoSolo() {
-		return artistas.size() == 1
+		return self.artistas().size() == 1
 	}
 
 	method costo() {
-		return artistas.sum{integrante => integrante.cobra(self)}
+		return artistas.sum{integrante => integrante.cobra(self)} + bandas.sum{banda => banda.cuantoCobran(self)}
 	}
 
 	method artistas(unosArtistas) {
 		artistas = unosArtistas
 	}
 	method magia(){
-		return artistas.sum{integrante => integrante.habilidad()}
+		return artistas.sum{integrante => integrante.habilidad()} + bandas.sum{banda => banda.habilidad(self)}
 	}
 
 }
