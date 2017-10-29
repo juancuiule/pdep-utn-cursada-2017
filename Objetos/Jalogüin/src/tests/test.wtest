@@ -1,0 +1,58 @@
+import Ninio.*
+import Adulto.*
+import Elementos.*
+import Legion.*
+import Barrio.*
+
+describe "Tests" {
+	
+	// Maquillajes
+	const maquillaje = new Maquillaje()
+	
+	// Trajes Tiernos
+	const winniePooh = new TrajeTierno()
+	const sullivan = new TrajeTierno()
+	
+	// Trajes Terrorificos
+	const jason = new TrajeTerrorifico()
+	const georgeBush = new TrajeTerrorifico()
+	
+	// Niños
+	const mike = new Ninio(10, #{maquillaje, winniePooh})
+	const eleven = new Ninio(5, #{jason})
+	const dustin = new Ninio(3, #{georgeBush})
+	const lucas = new Ninio(8, #{winniePooh, sullivan})
+	
+	const numbuh1 = new Ninio(2, #{georgeBush})
+	const numbuh2 = new Ninio(5, #{maquillaje})
+	const numbuh3 = new Ninio(6, #{sullivan, jason})
+	const numbuh4 = new Ninio(1, #{winniePooh})
+	const numbuh5 = new Ninio(7, #{jason})
+	
+	// Adultos
+	
+	const adulto1 = new Adulto()
+	const adulto2 = new Adulto()
+	
+	// Legiones	
+	const knd = new Legion(#{numbuh1, numbuh2, numbuh3, numbuh4, numbuh5})
+
+	// Barrios
+
+	
+	test "mike asusta a adulto1 y recibe 0 caramelos" {
+		mike.asustar(adulto1)
+		assert.equals(mike.caramelos(), 0)
+	}
+	
+	test "mike quiere comer 5 caramelos pero no puede" {
+		assert.throwsExceptionWithMessage("no tiene suficientes caramelos", {mike.comerCaramelos(5)})
+	}
+	
+	test "eleven tiene 20 caramelos y asusta al adulto 2, no recibe caramelos pero la cantidad de ninios con mas de 15 caramelos que intentaron asustar a adulto2 es 1" {
+		eleven.caramelos(20)
+		eleven.asustar(adulto2)
+		assert.equals(adulto2.niniosQueIntentaronAsustarlo(), 1)
+	}
+	
+}
