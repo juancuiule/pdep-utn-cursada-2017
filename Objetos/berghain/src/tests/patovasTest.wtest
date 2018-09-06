@@ -5,44 +5,43 @@ import main.pistas.*
 
 describe "Patovas" {
 
-	test "rochensen es patova de mainRoom y no deja entrar a vonLukaz porque es menor de 21" {
+	fixture {
 		mainRoom.patovaDeTurno(rochensen)
+		panoramaBar.patovaDeTurno(rodrigsen)
+		darkRoom.patovaDeTurno(gushtavotruccensen)
+	}
+
+	test "rochensen es patova de mainRoom y no deja entrar a vonLukaz porque es menor de 21" {
 		mainRoom.entrar(vonLukaz)
 		assert.notThat(mainRoom.estaEnPista(vonLukaz))
 	}
 
 	test "rochensen es patova de mainRoom y deja entrar a bianker porque es mayor de 21" {
-		mainRoom.patovaDeTurno(rochensen)
 		mainRoom.entrar(bianker)
 		assert.that(mainRoom.estaEnPista(bianker))
 	}
 
 	test "rodrigsen es patova de panoramaBar y no deja pasar a vonLukaz porque tiene remera blanca" {
-		panoramaBar.patovaDeTurno(rodrigsen)
 		panoramaBar.entrar(vonLukaz)
 		assert.notThat(panoramaBar.estaEnPista(vonLukaz))
 	}
 
 	test "rodrigsen es patova de panoramaBar y deja pasar a gonen porque tiene remera negra" {
-		panoramaBar.patovaDeTurno(rodrigsen)
 		panoramaBar.entrar(gonzen)
 		assert.that(panoramaBar.estaEnPista(gonzen))
 	}
 
 	test "gushtavotruccensen es patova en darkRoom y no deja entrar a gonzen" {
-		darkRoom.patovaDeTurno(gushtavotruccensen)
 		darkRoom.entrar(gonzen)
 		assert.notThat(darkRoom.estaEnPista(gonzen))
 	}
 
 	test "gushtavotruccensen es patova en darkRoom y no deja entrar a vonLukaz" {
-		darkRoom.patovaDeTurno(gushtavotruccensen)
 		darkRoom.entrar(vonLukaz)
 		assert.notThat(darkRoom.estaEnPista(vonLukaz))
 	}
 
 	test "gushtavotruccensen es patova en darkRoom y no deja entrar a bianker" {
-		darkRoom.patovaDeTurno(gushtavotruccensen)
 		darkRoom.entrar(bianker)
 		assert.notThat(darkRoom.estaEnPista(bianker))
 	}
