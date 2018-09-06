@@ -8,7 +8,7 @@ object mainRoom {
 	}
 
 	method bailar(persona) {
-		persona.disminuuirEnergia(40)
+		persona.disminuirEnergia(40)
 		persona.aumentarDiversion(30)
 	}
 

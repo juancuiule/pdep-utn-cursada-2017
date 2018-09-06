@@ -20,6 +20,9 @@ object tommyMunioz {
 
 	method hacerBailar(persona) {
 		persona.disminuirEnergia(80)
+		// definir si "no se divierte" quiere decir
+		// que queda con diversion == 0 ó que la diversion
+		// no cambia
 		persona.diversion(0)
 	}
 
