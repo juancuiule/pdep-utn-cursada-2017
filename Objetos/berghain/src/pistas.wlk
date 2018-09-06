@@ -1,19 +1,20 @@
 object mainRoom {
-	var patovaDeTurno
-	var personas = #{}
+
+	var property patovaDeTurno
+	var property personas = #{}
 
 	method nombre() {
 		return "mainRoom"
 	}
-	
+
 	method bailar(persona) {
-		persona.modificarEnergia(-40)
-		persona.modificarDiversion(30)
+		persona.disminuuirEnergia(40)
+		persona.aumentarDiversion(30)
 	}
 
 	method entrar(persona) {
 		if (patovaDeTurno.dejaPasar(persona)) {
-			personas.add(persona)	
+			personas.add(persona)
 		}
 	}
 
@@ -21,19 +22,13 @@ object mainRoom {
 		return personas.size()
 	}
 
-	method personas() {
-		return personas
-	}
-
-	method patovaDeTurno(nuevoPatova) {
-		patovaDeTurno = nuevoPatova
-	}
 }
 
 object panoramaBar {
-	var patovaDeTurno
-	var dj
-	var personas = #{}
+
+	var property patovaDeTurno
+	var property dj
+	var property personas = #{}
 
 	method nombre() {
 		return "panoramaBar"
@@ -45,7 +40,7 @@ object panoramaBar {
 
 	method entrar(persona) {
 		if (patovaDeTurno.dejaPasar(persona)) {
-			personas.add(persona)	
+			personas.add(persona)
 		}
 	}
 
@@ -53,22 +48,12 @@ object panoramaBar {
 		return personas.size()
 	}
 
-	method personas() {
-		return personas
-	}
-
-	method patovaDeTurno(nuevoPatova) {
-		patovaDeTurno = nuevoPatova
-	}
-	
-	method dj(nuevoDj) {
-		dj = nuevoDj
-	}
 }
 
 object darkRoom {
-	var patovaDeTurno
-	var personas = #{}
+
+	var property patovaDeTurno
+	var property personas = #{}
 
 	method nombre() {
 		return "darkRoom"
@@ -76,7 +61,7 @@ object darkRoom {
 
 	method entrar(persona) {
 		if (patovaDeTurno.dejaPasar(persona)) {
-			personas.add(persona)	
+			personas.add(persona)
 		}
 	}
 
@@ -84,11 +69,5 @@ object darkRoom {
 		return personas.size()
 	}
 
-	method personas() {
-		return personas
-	}
-
-	method patovaDeTurno(nuevoPatova) {
-		patovaDeTurno = nuevoPatova
-	}
 }
+

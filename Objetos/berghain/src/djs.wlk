@@ -1,20 +1,27 @@
 object dixon {
+
 	method hacerBailar(persona) {
-		persona.modificarEnergia(-60)
-		persona.modificarDiversion(120)
+		persona.disminuirEnergia(60)
+		persona.aumentarDiversion(120)
 	}
+
 }
 
 object marcelDettmann {
+
 	method hacerBailar(persona) {
-		persona.modificarEnergia(-persona.energia())
-		persona.modificarDiversion(1000)
-	}	
+		persona.energia(0)
+		persona.aumentarDiversion(1000)
+	}
+
 }
 
 object tommyMunioz {
+
 	method hacerBailar(persona) {
-		persona.modificarEnergia(-80)
-		//persona.modificarDiversion(-persona.diversion())
-	}	
+		persona.disminuirEnergia(80)
+		persona.diversion(0)
+	}
+
 }
+

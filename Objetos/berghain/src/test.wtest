@@ -3,15 +3,18 @@ import patovas.*
 import pistas.*
 
 describe "Patovas" {
+
 	test "rochensen es patova de mainRoom y deja entrar a bianker" {
 		mainRoom.patovaDeTurno(rochensen)
 		mainRoom.entrar(bianker)
 		assert.that(mainRoom.personas().contains(bianker))
 	}
-	
+
 	test "gushtavotruccensen es patova en mainRoom y no deja entrar a gonzen" {
 		mainRoom.patovaDeTurno(gushtavotruccensen)
 		mainRoom.entrar(gonzen)
 		assert.notThat(mainRoom.personas().contains(gonzen))
 	}
+
 }
+

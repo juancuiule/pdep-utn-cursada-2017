@@ -1,80 +1,75 @@
 object vonLukaz {
-	var energia = 150
-	var diversion = 70
-	var remera = "blanca"
-	var edad = 17
 
-	method modificarEnergia(cantidad) {
+	var property energia = 150
+	var property diversion = 70
+	var property remera = "blanca"
+	var property edad = 17
+
+	method aumentarEnergia(cantidad) {
 		energia += cantidad
 	}
 
-	method modificarDiversion(cantidad) {
+	method disminuirEnergia(cantidad) {
+		energia -= cantidad
+	}
+
+	method aumentarDiversion(cantidad) {
 		diversion += cantidad
 	}
 
-	method remera() {
-		return remera
+	method disminuirDiversion(cantidad) {
+		diversion -= cantidad
 	}
 
-	method energia() {
-		return energia
-	}
-	
-	method edad() {
-		return edad
-	}
 }
 
 object bianker {
-	var energia = 140
-	var diversion = 80
-	var remera = "negra"
-	var edad = 22
 
-	method modificarEnergia(cantidad) {
+	var property energia = 140
+	var property diversion = 80
+	var property remera = "negra"
+	var property edad = 22
+
+	method aumentarEnergia(cantidad) {
 		energia += cantidad
 	}
 
-	method modificarDiversion(cantidad) {
+	method disminuirEnergia(cantidad) {
+		energia -= cantidad
+	}
+
+	method aumentarDiversion(cantidad) {
 		diversion += cantidad
 	}
 
-	method remera() {
-		return remera
+	method disminuirDiversion(cantidad) {
+		diversion -= cantidad
 	}
 
-	method energia() {
-		return energia
-	}
-
-	method edad() {
-		return edad
-	}
 }
 
 object gonzen {
-	var energia = 90
-	var diversion = 15
-	var remera = "negra"
-	var edad = 17
 
-	method modificarEnergia(cantidad) {
+	var property energia = 90
+	var property diversion = 15
+	var property remera = "negra"
+	var property edad = 17
+
+	method aumentarEnergia(cantidad) {
 		energia += cantidad
 	}
 
-	method modificarDiversion(cantidad) {
+	method disminuirEnergia(cantidad) {
+		energia -= cantidad
+	}
+
+	method aumentarDiversion(cantidad) {
 		diversion += cantidad
 	}
 
-	method remera() {
-		return remera
+	method disminuirDiversion(cantidad) {
+		diversion -= cantidad
 	}
 
-	method energia() {
-		return energia
-	}
-
-	method edad() {
-		return edad
-	}
 }
+
