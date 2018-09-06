@@ -21,6 +21,10 @@ object mainRoom {
 	method cuantosBailan() {
 		return personas.size()
 	}
+	
+	method estaEnPista(alguien) {
+		return personas.contains(alguien)
+	}
 
 }
 
@@ -47,6 +51,10 @@ object panoramaBar {
 	method cuantosBailan() {
 		return personas.size()
 	}
+	
+	method estaEnPista(alguien) {
+		return personas.contains(alguien)
+	}
 
 }
 
@@ -59,6 +67,8 @@ object darkRoom {
 		return "darkRoom"
 	}
 
+	method bailar() {}
+
 	method entrar(persona) {
 		if (patovaDeTurno.dejaPasar(persona)) {
 			personas.add(persona)
@@ -67,6 +77,10 @@ object darkRoom {
 
 	method cuantosBailan() {
 		return personas.size()
+	}
+	
+	method estaEnPista(alguien) {
+		return personas.contains(alguien)
 	}
 
 }
