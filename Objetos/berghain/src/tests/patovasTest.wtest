@@ -26,9 +26,9 @@ describe "Patovas" {
 		assert.notThat(panoramaBar.estaEnPista(vonLukaz))
 	}
 
-	test "rodrigsen es patova de panoramaBar y deja pasar a gonzen porque tiene remera negra" {
-		panoramaBar.entrar(gonzen)
-		assert.that(panoramaBar.estaEnPista(gonzen))
+	test "rodrigsen es patova de panoramaBar y deja pasar a bianker porque tiene todo de negro" {
+		panoramaBar.entrar(bianker)
+		assert.that(panoramaBar.estaEnPista(bianker))
 	}
 
 	test "gushtavotruccensen es patova en darkRoom y no deja entrar a gonzen" {
