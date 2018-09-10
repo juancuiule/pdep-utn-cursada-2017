@@ -26,7 +26,7 @@ describe "Patovas" {
 		assert.notThat(panoramaBar.estaEnPista(vonLukaz))
 	}
 
-	test "rodrigsen es patova de panoramaBar y deja pasar a gonen porque tiene remera negra" {
+	test "rodrigsen es patova de panoramaBar y deja pasar a gonzen porque tiene remera negra" {
 		panoramaBar.entrar(gonzen)
 		assert.that(panoramaBar.estaEnPista(gonzen))
 	}

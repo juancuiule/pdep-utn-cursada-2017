@@ -1,7 +1,7 @@
 object rochensen {
 
 	method dejaPasar(persona) {
-		return persona.edad() > 21
+		return persona.esMayorDe(21)
 	}
 
 }
@@ -9,7 +9,7 @@ object rochensen {
 object rodrigsen {
 
 	method dejaPasar(persona) {
-		return persona.remera() == "negra"
+		return persona.tieneRemeraDeColor("negra")
 	}
 
 }
