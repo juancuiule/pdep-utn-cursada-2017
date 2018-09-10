@@ -3,6 +3,7 @@ object vonLukaz {
 	var property energia = 150
 	var property diversion = 70
 	var remera = "blanca"
+	var jean = "blanco"
 	var edad = 17
 
 	method aumentarEnergia(cantidad) {
@@ -24,6 +25,10 @@ object vonLukaz {
 	method tieneRemeraDeColor(color) {
 		return remera == color
 	}
+	
+	method tieneJeanDeColor(color) {
+		return jean == color
+	}
 
 	method esMayorDe(unaEdad) {
 		return edad > unaEdad
@@ -36,6 +41,7 @@ object bianker {
 	var property energia = 140
 	var property diversion = 80
 	var remera = "negra"
+	var jean = "negro"
 	var edad = 22
 
 	method aumentarEnergia(cantidad) {
@@ -57,6 +63,10 @@ object bianker {
 	method tieneRemeraDeColor(color) {
 		return remera == color
 	}
+	
+	method tieneJeanDeColor(color) {
+		return jean == color
+	}
 
 	method esMayorDe(unaEdad) {
 		return edad > unaEdad
@@ -69,7 +79,8 @@ object gonzen {
 	var property energia = 90
 	var property diversion = 15
 	var remera = "negra"
-	var edad = 17
+	var jean = "azul"
+	var edad = 33
 
 	method aumentarEnergia(cantidad) {
 		energia += cantidad
@@ -89,6 +100,10 @@ object gonzen {
 
 	method tieneRemeraDeColor(color) {
 		return remera == color
+	}
+	
+	method tieneJeanDeColor(color) {
+		return jean == color
 	}
 
 	method esMayorDe(unaEdad) {

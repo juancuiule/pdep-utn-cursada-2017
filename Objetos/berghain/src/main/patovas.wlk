@@ -9,7 +9,7 @@ object rochensen {
 object rodrigsen {
 
 	method dejaPasar(persona) {
-		return persona.tieneRemeraDeColor("negra")
+		return persona.tieneRemeraDeColor("negra") and persona.tieneJeanDeColor("negro")
 	}
 
 }
